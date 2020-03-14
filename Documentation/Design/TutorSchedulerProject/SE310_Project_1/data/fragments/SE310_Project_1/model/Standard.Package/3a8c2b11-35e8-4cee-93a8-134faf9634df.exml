@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="se310_project_1" version="4">
+  <OBJECT>
+    <ID name="se310_project_1" mc="Standard.Package" uid="3a8c2b11-35e8-4cee-93a8-134faf9634df"/>
+    <PID name="SE310_Project_1" mc="Standard.Project" uid="d3e36586-0c4b-4db4-b0bd-9ddf6fbbeb0a"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[se310_project_1]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Student" mc="Standard.Actor" uid="f94554f0-97aa-4f4d-93a8-528ee5083284"/>
+        <COMPID name="Tutor" mc="Standard.Actor" uid="2d38bd51-36af-4aea-8fa5-5d98d282a7b0"/>
+        <COMPID name="Supervisor" mc="Standard.Actor" uid="cb22f295-fc3c-472e-bf1b-21c992bd154f"/>
+        <COMPID name="Find avalible Appointment" mc="Standard.UseCase" uid="756313ae-97cb-4205-b73c-c7b16ab4cb76"/>
+        <COMPID name="Search On tutor" mc="Standard.UseCase" uid="c517802a-da9d-4369-90b7-ca5a6c7cc763"/>
+        <COMPID name="Search on Subject" mc="Standard.UseCase" uid="785695f5-f189-49dc-b4d5-48b3b29dbbab"/>
+        <COMPID name="Search Time" mc="Standard.UseCase" uid="a606b52f-e550-41d5-a196-e8612939d77b"/>
+        <COMPID name="Make Appointment" mc="Standard.UseCase" uid="efcb66cb-37fa-4a33-b1d6-6ebad02936a5"/>
+        <COMPID name="Aknowledge Appointment" mc="Standard.UseCase" uid="e82cd1bd-5a06-4bf8-9727-1fa5966003ab"/>
+        <COMPID name="Get All Appointments" mc="Standard.UseCase" uid="9264dec7-5d72-4807-beeb-8e1a3387aeb8"/>
+        <COMPID name="Get All My appointments" mc="Standard.UseCase" uid="290969f2-fc2a-4276-a566-e47382f0fb6e"/>
+        <COMPID name="Filter Appointments on Day" mc="Standard.UseCase" uid="2f4bb063-0115-48b4-a6f4-fccbea0df5a8"/>
+        <COMPID name="Filter Appointments on Tutor" mc="Standard.UseCase" uid="a4b8e048-c93c-4eda-9eeb-bb66b882a6d8"/>
+        <COMPID name="Filter appointments on Taken status" mc="Standard.UseCase" uid="7e311d2b-1a79-4646-9d7a-b47e11e6b018"/>
+        <COMPID name="Fill out feedback Form" mc="Standard.UseCase" uid="fb38c976-8861-4ad3-81de-66379dc04e06"/>
+        <COMPID name="View Feedback" mc="Standard.UseCase" uid="1e63fedc-070a-4aeb-812f-070eea2ce2f1"/>
+        <COMPID name="View Deanonmyzied feeback" mc="Standard.UseCase" uid="4ce9fdf0-2911-4c13-bb40-ed2eef8ba6fd"/>
+        <COMPID name="Person" mc="Standard.Class" uid="973e2945-1a3d-4562-adaa-ef163ca40a16"/>
+        <COMPID name="Appointment" mc="Standard.Class" uid="d3386dac-4c90-41e0-ab80-a829694fe810"/>
+        <COMPID name="Database" mc="Standard.Class" uid="395a5792-b4f3-4a6c-8640-fe131033b3c1"/>
+        <COMPID name="WebForm" mc="Standard.Class" uid="a6ceee6c-ab3f-43b2-a41b-5daf9c525a32"/>
+        <COMPID name="Tutor" mc="Standard.Class" uid="18a8055e-9e88-48d6-99f4-ce0f007d2917"/>
+        <COMPID name="Supervisor" mc="Standard.Class" uid="bf86b759-5458-4dc4-ab6c-9a7b2255d427"/>
+        <COMPID name="Student" mc="Standard.Class" uid="1b41239e-80e6-4ea5-945f-1bbb21ba35a2"/>
+        <COMPID name="Person" mc="Standard.Class" uid="292858ce-e7aa-4dcb-b4cc-80af5d243fab"/>
+        <COMPID name="Appointment" mc="Standard.Class" uid="49aca5d1-a211-4cb3-9c28-58bbdd18b5a2"/>
+        <COMPID name="TutorScheduler" mc="Standard.Class" uid="49629137-535c-4ec2-9c57-3824d8ffcf1e"/>
+        <COMPID name="WebForm" mc="Standard.Class" uid="c6ba28d9-9d95-48db-a89b-2a30966654ab"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Make Appointment" mc="Standard.UseCaseDiagram" uid="2f026e7d-3bbb-46ee-9286-03a383c44fd0"/>
+        <COMPID name="Get Sedchule Use Csae" mc="Standard.UseCaseDiagram" uid="b081a9f0-9103-497d-946b-fd5c558fec91"/>
+        <COMPID name="Give Feedback Usecase" mc="Standard.UseCaseDiagram" uid="05698810-31fb-43c8-b9b3-1b8c48701579"/>
+        <COMPID name="MRB_Class diagram" mc="Standard.ClassDiagram" uid="c02096e0-5cb5-4597-abc2-02316fe3b16a"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

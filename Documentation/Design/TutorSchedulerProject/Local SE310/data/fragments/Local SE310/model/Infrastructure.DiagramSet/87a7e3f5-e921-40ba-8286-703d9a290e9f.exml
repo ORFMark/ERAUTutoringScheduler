@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Local SE310" version="4">
+  <OBJECT>
+    <ID name="Local SE310" mc="Infrastructure.DiagramSet" uid="87a7e3f5-e921-40ba-8286-703d9a290e9f"/>
+    <PID name="Local SE310" mc="Standard.Project" uid="37de8391-f1b9-447a-890b-94fbe111bbb7"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[Local SE310]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="local se310" version="4">
+  <OBJECT>
+    <ID name="local se310" mc="Standard.Package" uid="6846af07-c59b-4032-be16-9cf289c2d37c"/>
+    <PID name="Local SE310" mc="Standard.Project" uid="37de8391-f1b9-447a-890b-94fbe111bbb7"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[local se310]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedBehavior">
+        <COMPID name="Interaction" mc="Standard.Interaction" uid="5c1c8106-6d63-4e01-881d-aeddc038e74e"/>
+        <COMPID name="Interaction1" mc="Standard.Interaction" uid="18f23427-8a39-4139-b5e8-fc526cd5b790"/>
+        <COMPID name="Interaction2" mc="Standard.Interaction" uid="03723c35-e24d-4863-9098-2edcadde0c80"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

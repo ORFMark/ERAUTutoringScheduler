@@ -1,0 +1,5 @@
+#Sun Feb 16 18:08:42 MST 2020
+org.modelio.diagram.editor.OpenedDiagrams3='Student Check-in Interaction Diagram' {17812a1e-4e1b-410b-967c-e8957a13df1e} Standard.SequenceDiagram
+org.modelio.diagram.editor.OpenedDiagrams2='SubmitAnonymousFeedback Interaction Diagram' {4381bfbe-d375-4051-8842-4bfe8ebd7e0c} Standard.SequenceDiagram
+org.modelio.diagram.editor.OpenedDiagrams1='View Daily Schedule Interaction Diagram' {e9482269-9bbb-46a0-bf50-8b060fb7e5a1} Standard.SequenceDiagram
+org.modelio.diagram.editor.OpenedDiagrams0='Tutor Scheduler Class diagram' {ee526df1-e0a6-438f-8414-58ce13ba6bf4} Standard.ClassDiagram
