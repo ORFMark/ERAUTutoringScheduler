@@ -124,5 +124,23 @@ public class DatabaseConnector {
 		}
 
 	}
+	protected void finalize() {
+		if (smt != null) {
+			try {
+				smt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			smt = null; 
+		}
+		if (database != null) {
+			try {
+				database.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			database = null;
+		}
+	}
 
 }
