@@ -23,9 +23,9 @@ public class DatabaseConnector {
 			System.out.println("Failed to load config file!");
 			e.printStackTrace();
 		}
-		String connectionUrl = "jdbc:mysql://prclab1.erau.edu:3306/" + config.getProperty("DB");
+		String connectionUrl = "jdbc:mysql://" + config.getProperty("host") + ":" + config.getProperty("port") + "/" + config.getProperty("DB");
 		try {
-			database = DriverManager.getConnection(connectionUrl, config.getProperty("Username"),
+			database = DriverManager.getConnection(connectionUrl, config.getProperty("UserName"),
 					config.getProperty("Password"));
 			if (database != null) {
 				System.out.println("Successfully connected to prclab");
