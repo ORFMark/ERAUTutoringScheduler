@@ -1,6 +1,7 @@
 package database;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -13,26 +14,46 @@ public class DatabaseConnector {
 	private Connection database;
 	private Statement smt;
 	private Properties config;
-
-	public DatabaseConnector() {
+	private boolean isValid;
+	public DatabaseConnector() throws Exception {
+		isValid = false;
+		String user = null;
+		String pass = null;
+		String port = null;
+		String host = null;
+		String db = null;
+		FileInputStream file = null;
 		config = new Properties();
 		try {
-			FileInputStream file = new FileInputStream("config.properties");
+			file = new FileInputStream("config.properties");
 			config.load(file);
+			user = config.getProperty("UserName");
+			pass = config.getProperty("Password");
+			port = config.getProperty("port");
+			host = config.getProperty("host");
+			db = config.getProperty("DB");
+			
 		} catch (Exception e) {
 			System.out.println("Failed to load config file!");
 			e.printStackTrace();
+			host = "prclab1.erau.edu";
+			user = "erauprescott";
+			pass = "erauprescott";
+			port = "3306";
+			db = "sakila";
+		} finally {
+			file.close();
 		}
-		String connectionUrl = "jdbc:mysql://" + config.getProperty("host") + ":" + config.getProperty("port") + "/" + config.getProperty("DB");
+		String connectionUrl = "jdbc:mysql://" + host + ":" + port + "/" + database;
 		try {
-			database = DriverManager.getConnection(connectionUrl, config.getProperty("UserName"),
-					config.getProperty("Password"));
+			database = DriverManager.getConnection(connectionUrl, user, pass);
 			if (database != null) {
-				System.out.println("Successfully connected to prclab");
+				System.out.println("Successfully connected to " + host);
 			}
 		} catch (Exception e) {
-			System.out.println("COULD NOT CONNECT TO PRCLAB");
-			e.printStackTrace();
+			System.out.println("COULD NOT CONNECT TO " + host.toUpperCase());
+			database = null;
+			throw e;
 		}
 	}
 
