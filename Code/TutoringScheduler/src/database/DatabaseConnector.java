@@ -1,3 +1,8 @@
+/*
+ * Author: Burrell, Mark R.
+ * Purpose: To serve as an interface between a SQL database and a java program. 
+ */
+
 package database;
 
 import java.io.FileInputStream;
@@ -10,43 +15,61 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
+/**
+ * @author      Mark Burrell <markrb0609@gmail.com>
+ * @version     1.2                 (current version number of program)
+ * @since       1.0          (the version of the package this class was first added to)
+ */
+
 public class DatabaseConnector {
 	private Connection database;
-	private Statement smt;
+	private Statement dbStatement;
 	private Properties config;
 	private boolean isValid;
+	
+	/**
+	 * Default Database Connector that loads based on the config file
+	 * <p>
+	 * requires the following config fields
+	 * UserName
+	 * Password
+	 * DB
+	 * host
+	 * port
+	 * </p>
+	 */
 	public DatabaseConnector() throws Exception {
 		isValid = false;
-		String user = null;
-		String pass = null;
+		String userName = null;
+		String passsword = null;
 		String port = null;
 		String host = null;
-		String db = null;
+		String databaseName = null;
 		FileInputStream file = null;
 		config = new Properties();
 		try {
 			file = new FileInputStream("config.properties");
 			config.load(file);
-			user = config.getProperty("UserName");
-			pass = config.getProperty("Password");
+			userName = config.getProperty("UserName");
+			passsword = config.getProperty("Password");
 			port = config.getProperty("port");
 			host = config.getProperty("host");
-			db = config.getProperty("DB");
+			databaseName = config.getProperty("DB");
 			
 		} catch (Exception e) {
 			System.out.println("Failed to load config file!");
 			e.printStackTrace();
 			host = "prclab1.erau.edu";
-			user = "erauprescott";
-			pass = "erauprescott";
+			userName = "erauprescott";
+			passsword = "erauprescott";
 			port = "3306";
-			db = "sakila";
+			databaseName = "sakila";
 		} finally {
 			file.close();
 		}
 		String connectionUrl = "jdbc:mysql://" + host + ":" + port + "/" + database;
 		try {
-			database = DriverManager.getConnection(connectionUrl, user, pass);
+			database = DriverManager.getConnection(connectionUrl, userName, passsword);
 			if (database != null) {
 				System.out.println("Successfully connected to " + host);
 			}
@@ -57,6 +80,15 @@ public class DatabaseConnector {
 		}
 	}
 
+	
+	/**
+	 * Allows for user-specified database locations and hots                    
+	 *
+	 * @param  host The host URL with the port
+	 * @param database the database name
+	 * @param user the username for the connection account
+	 * @param password the password for the connection account      
+	 */
 	public DatabaseConnector(String host, String database, String user, String password) {
 		String connectionURL = "jdbc:mysql://" + host + "/" + database;
 		System.out.println("Attempting to connect to database " + database + "at host " + host);
@@ -69,12 +101,19 @@ public class DatabaseConnector {
 		}
 	}
 
+	
+	/**
+	 * Runs a query against the database                           (1)
+	 *
+	 * @param  query the properly formatted SQL query.          (3)
+	 * @return ResultSet containing the result of the querey
+	 */
 	public ResultSet runQuery(String query) {
 		ResultSet rs = null;
 		try {
 			if (database != null && !database.isClosed()) {
-				smt = database.createStatement();
-				rs = smt.executeQuery(query);
+				dbStatement = database.createStatement();
+				rs = dbStatement.executeQuery(query);
 			} else {
 				System.out.println("Database: " + Boolean.toString(database != null) + " closed: "
 						+ Boolean.toString(database.isClosed()));
@@ -87,6 +126,13 @@ public class DatabaseConnector {
 		return rs;
 	}
 
+	
+	/**
+	 * prints a result set in semi-readable format                          (1)
+	 * @TODO: Clean up the print to make it fully readable
+	 *
+	 * @param  rs Resultset to be printed. 
+	 */
 	public void printResultSet(ResultSet rs) {
 		int columnsNumber;
 		try {
@@ -102,17 +148,22 @@ public class DatabaseConnector {
 				System.out.println("");
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
 
+	
+	/**
+	 * Runs a update like an insert or delete on the database
+	 *
+	 * @param  updateQuerey A string containing the properly formatted SQL update querey..
+	 */
 	public void updateDatabase(String updateQuery) {
 		try {
 			if (database != null && !database.isClosed()) {
-				smt = database.createStatement();
-				smt.executeUpdate(updateQuery);
+				dbStatement = database.createStatement();
+				dbStatement.executeUpdate(updateQuery);
 			} else {
 				System.out.println("Database: " + Boolean.toString(database != null) + " closed: "
 						+ Boolean.toString(database.isClosed()));
@@ -124,14 +175,15 @@ public class DatabaseConnector {
 	}
 
 
+	
 	public Connection getDatabase() {
 		return database;
 	}
 
 	public void close() {
-		if (smt != null) {
+		if (dbStatement != null) {
 			try {
-				smt.close();
+				dbStatement.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -143,16 +195,19 @@ public class DatabaseConnector {
 				e.printStackTrace();
 			}
 		}
+		dbStatement = null;
+		database = null;
 
 	}
+	
 	protected void finalize() {
-		if (smt != null) {
+		if (dbStatement != null) {
 			try {
-				smt.close();
+				dbStatement.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			smt = null; 
+			dbStatement = null; 
 		}
 		if (database != null) {
 			try {
