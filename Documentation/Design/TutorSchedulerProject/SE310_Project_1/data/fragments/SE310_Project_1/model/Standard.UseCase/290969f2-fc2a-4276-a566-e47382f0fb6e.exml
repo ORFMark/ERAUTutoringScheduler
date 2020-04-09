@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Get All My appointments" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Get All My Appointments" version="4">
   <OBJECT>
-    <ID name="Get All My appointments" mc="Standard.UseCase" uid="290969f2-fc2a-4276-a566-e47382f0fb6e"/>
-    <PID name="se310_project_1" mc="Standard.Package" uid="3a8c2b11-35e8-4cee-93a8-134faf9634df"/>
+    <ID name="Get All My Appointments" mc="Standard.UseCase" uid="290969f2-fc2a-4276-a566-e47382f0fb6e"/>
+    <PID name="Use Cases" mc="Standard.Package" uid="a350253c-d173-4416-bd49-3c1bb16f82e0"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Get All My appointments]]></ATT>
+      <ATT name="Name"><![CDATA[Get All My Appointments]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>

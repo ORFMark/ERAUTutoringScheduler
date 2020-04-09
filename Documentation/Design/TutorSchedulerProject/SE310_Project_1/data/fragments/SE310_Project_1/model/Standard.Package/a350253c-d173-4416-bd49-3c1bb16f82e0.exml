@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Use Cases" version="4">
+  <OBJECT>
+    <ID name="Use Cases" mc="Standard.Package" uid="a350253c-d173-4416-bd49-3c1bb16f82e0"/>
+    <PID name="se310_project_1" mc="Standard.Package" uid="3a8c2b11-35e8-4cee-93a8-134faf9634df"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Use Cases]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Student" mc="Standard.Actor" uid="f94554f0-97aa-4f4d-93a8-528ee5083284"/>
+        <COMPID name="Tutor" mc="Standard.Actor" uid="2d38bd51-36af-4aea-8fa5-5d98d282a7b0"/>
+        <COMPID name="Supervisor" mc="Standard.Actor" uid="cb22f295-fc3c-472e-bf1b-21c992bd154f"/>
+        <COMPID name="Find Available Appointment" mc="Standard.UseCase" uid="756313ae-97cb-4205-b73c-c7b16ab4cb76"/>
+        <COMPID name="Search on Tutor" mc="Standard.UseCase" uid="c517802a-da9d-4369-90b7-ca5a6c7cc763"/>
+        <COMPID name="Search on Subject" mc="Standard.UseCase" uid="785695f5-f189-49dc-b4d5-48b3b29dbbab"/>
+        <COMPID name="Search Time" mc="Standard.UseCase" uid="a606b52f-e550-41d5-a196-e8612939d77b"/>
+        <COMPID name="Make Appointment" mc="Standard.UseCase" uid="efcb66cb-37fa-4a33-b1d6-6ebad02936a5"/>
+        <COMPID name="Acknowledge Appointment" mc="Standard.UseCase" uid="e82cd1bd-5a06-4bf8-9727-1fa5966003ab"/>
+        <COMPID name="Get All Appointments" mc="Standard.UseCase" uid="9264dec7-5d72-4807-beeb-8e1a3387aeb8"/>
+        <COMPID name="Get All My Appointments" mc="Standard.UseCase" uid="290969f2-fc2a-4276-a566-e47382f0fb6e"/>
+        <COMPID name="Filter Appointments on Day" mc="Standard.UseCase" uid="2f4bb063-0115-48b4-a6f4-fccbea0df5a8"/>
+        <COMPID name="Filter Appointments on Tutor" mc="Standard.UseCase" uid="a4b8e048-c93c-4eda-9eeb-bb66b882a6d8"/>
+        <COMPID name="Filter Appointments on Taken Status" mc="Standard.UseCase" uid="7e311d2b-1a79-4646-9d7a-b47e11e6b018"/>
+        <COMPID name="Fill Out Feedback Form" mc="Standard.UseCase" uid="fb38c976-8861-4ad3-81de-66379dc04e06"/>
+        <COMPID name="View Feedback" mc="Standard.UseCase" uid="1e63fedc-070a-4aeb-812f-070eea2ce2f1"/>
+        <COMPID name="View Unanonymized Feedback" mc="Standard.UseCase" uid="4ce9fdf0-2911-4c13-bb40-ed2eef8ba6fd"/>
+        <COMPID name="Manage Appointments" mc="Standard.UseCase" uid="a0651e69-c119-4e1c-8ace-411f67af2572"/>
+        <COMPID name="Manage Students" mc="Standard.UseCase" uid="6459d0d8-825c-48fc-bac5-b9b2669858c9"/>
+        <COMPID name="Add Student" mc="Standard.UseCase" uid="3de4ec11-7403-4acf-950e-5f6668665716"/>
+        <COMPID name="Blacklist Student" mc="Standard.UseCase" uid="93dd483e-0110-4227-8e79-bede40abe747"/>
+        <COMPID name="Add Appointment" mc="Standard.UseCase" uid="7c7f1c1d-3777-42b6-bbe4-42cb3aaba744"/>
+        <COMPID name="Edit Appointment" mc="Standard.UseCase" uid="f81d9720-4be9-4251-8897-0700e1117b3d"/>
+        <COMPID name="Remove Student" mc="Standard.UseCase" uid="b1b17025-27fd-43a2-b970-1beef91eb7e2"/>
+        <COMPID name="Delete Appointment" mc="Standard.UseCase" uid="e5dbdcdc-5ffc-4d0b-8d75-77cdb33644b4"/>
+        <COMPID name="Set Email Reminder Time" mc="Standard.UseCase" uid="fc95eaa2-60c6-4310-8f6b-1a5480be2808"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Make Appointment Use Case" mc="Standard.UseCaseDiagram" uid="2f026e7d-3bbb-46ee-9286-03a383c44fd0"/>
+        <COMPID name="Get Schedule Use Case" mc="Standard.UseCaseDiagram" uid="b081a9f0-9103-497d-946b-fd5c558fec91"/>
+        <COMPID name="Give Feedback Use Case" mc="Standard.UseCaseDiagram" uid="05698810-31fb-43c8-b9b3-1b8c48701579"/>
+        <COMPID name="Management Use Case" mc="Standard.UseCaseDiagram" uid="e4a50750-ad08-4c52-89c7-0946824952f5"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

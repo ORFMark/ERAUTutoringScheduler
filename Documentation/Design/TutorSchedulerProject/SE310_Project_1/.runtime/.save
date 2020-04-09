@@ -1,5 +1,6 @@
-#Wed Apr 08 09:26:38 PDT 2020
-org.modelio.diagram.editor.OpenedDiagrams3='Make Appointment' {2f026e7d-3bbb-46ee-9286-03a383c44fd0} Standard.UseCaseDiagram
-org.modelio.diagram.editor.OpenedDiagrams2='Give Feedback Usecase' {05698810-31fb-43c8-b9b3-1b8c48701579} Standard.UseCaseDiagram
-org.modelio.diagram.editor.OpenedDiagrams1='MRB_Class diagram' {c02096e0-5cb5-4597-abc2-02316fe3b16a} Standard.ClassDiagram
-org.modelio.diagram.editor.OpenedDiagrams0='Get Sedchule Use Csae' {b081a9f0-9103-497d-946b-fd5c558fec91} Standard.UseCaseDiagram
+#Wed Apr 08 21:49:54 PDT 2020
+org.modelio.diagram.editor.OpenedDiagrams4='MRB_Class diagram' {c02096e0-5cb5-4597-abc2-02316fe3b16a} Standard.ClassDiagram
+org.modelio.diagram.editor.OpenedDiagrams3='Management Use Case' {e4a50750-ad08-4c52-89c7-0946824952f5} Standard.UseCaseDiagram
+org.modelio.diagram.editor.OpenedDiagrams2='Give Feedback Use Case' {05698810-31fb-43c8-b9b3-1b8c48701579} Standard.UseCaseDiagram
+org.modelio.diagram.editor.OpenedDiagrams1='Get Schedule Use Case' {b081a9f0-9103-497d-946b-fd5c558fec91} Standard.UseCaseDiagram
+org.modelio.diagram.editor.OpenedDiagrams0='Make Appointment Use Case' {2f026e7d-3bbb-46ee-9286-03a383c44fd0} Standard.UseCaseDiagram

@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="TutorScheduler" version="4">
   <OBJECT>
     <ID name="TutorScheduler" mc="Standard.Class" uid="49629137-535c-4ec2-9c57-3824d8ffcf1e"/>
-    <PID name="se310_project_1" mc="Standard.Package" uid="3a8c2b11-35e8-4cee-93a8-134faf9634df"/>
+    <PID name="Class Diagram" mc="Standard.Package" uid="f8544c46-fb1a-4554-a1b8-8ffce83b4b91"/>
     <ATTRIBUTES>
       <ATT name="IsActive">false</ATT>
       <ATT name="IsMain">false</ATT>

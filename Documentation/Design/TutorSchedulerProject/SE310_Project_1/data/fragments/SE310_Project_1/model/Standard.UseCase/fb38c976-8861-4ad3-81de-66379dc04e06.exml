@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Fill out feedback Form" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Fill Out Feedback Form" version="4">
   <OBJECT>
-    <ID name="Fill out feedback Form" mc="Standard.UseCase" uid="fb38c976-8861-4ad3-81de-66379dc04e06"/>
-    <PID name="se310_project_1" mc="Standard.Package" uid="3a8c2b11-35e8-4cee-93a8-134faf9634df"/>
+    <ID name="Fill Out Feedback Form" mc="Standard.UseCase" uid="fb38c976-8861-4ad3-81de-66379dc04e06"/>
+    <PID name="Use Cases" mc="Standard.Package" uid="a350253c-d173-4416-bd49-3c1bb16f82e0"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Fill out feedback Form]]></ATT>
+      <ATT name="Name"><![CDATA[Fill Out Feedback Form]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>

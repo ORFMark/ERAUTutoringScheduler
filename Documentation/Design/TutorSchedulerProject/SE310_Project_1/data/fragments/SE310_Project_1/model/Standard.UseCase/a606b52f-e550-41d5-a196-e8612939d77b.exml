@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Search Time" version="4">
   <OBJECT>
     <ID name="Search Time" mc="Standard.UseCase" uid="a606b52f-e550-41d5-a196-e8612939d77b"/>
-    <PID name="se310_project_1" mc="Standard.Package" uid="3a8c2b11-35e8-4cee-93a8-134faf9634df"/>
+    <PID name="Use Cases" mc="Standard.Package" uid="a350253c-d173-4416-bd49-3c1bb16f82e0"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
@@ -15,14 +15,14 @@
     <DEPENDENCIES>
       <COMP relation="Used">
         <OBJECT>
-          <ID name="UseCaseDependency" mc="Standard.UseCaseDependency" uid="29b3a4ec-8574-479e-ab4d-b6b0fae14e2e"/>
+          <ID name="UseCaseDependency" mc="Standard.UseCaseDependency" uid="77112807-719d-497c-b518-c95cfdde8a38"/>
           <ATTRIBUTES>
             <ATT name="Name"><![CDATA[UseCaseDependency]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Find avalible Appointment" mc="Standard.UseCase" uid="756313ae-97cb-4205-b73c-c7b16ab4cb76"/>
+              <ID name="Find Available Appointment" mc="Standard.UseCase" uid="756313ae-97cb-4205-b73c-c7b16ab4cb76"/>
             </LINK>
             <LINK relation="Extension">
               <FOREIGNID name="extend" mc="Infrastructure.Stereotype" uid="00000000-0000-9c48-0000-000000000000"/>

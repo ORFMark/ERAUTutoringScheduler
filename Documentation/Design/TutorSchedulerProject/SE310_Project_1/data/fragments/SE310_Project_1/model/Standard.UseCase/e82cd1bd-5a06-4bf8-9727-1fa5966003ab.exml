@@ -1,21 +1,21 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Aknowledge Appointment" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Acknowledge Appointment" version="4">
   <OBJECT>
-    <ID name="Aknowledge Appointment" mc="Standard.UseCase" uid="e82cd1bd-5a06-4bf8-9727-1fa5966003ab"/>
-    <PID name="se310_project_1" mc="Standard.Package" uid="3a8c2b11-35e8-4cee-93a8-134faf9634df"/>
+    <ID name="Acknowledge Appointment" mc="Standard.UseCase" uid="e82cd1bd-5a06-4bf8-9727-1fa5966003ab"/>
+    <PID name="Use Cases" mc="Standard.Package" uid="a350253c-d173-4416-bd49-3c1bb16f82e0"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Aknowledge Appointment]]></ATT>
+      <ATT name="Name"><![CDATA[Acknowledge Appointment]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
       <COMP relation="Used">
         <OBJECT>
-          <ID name="UseCaseDependency" mc="Standard.UseCaseDependency" uid="ae22e57e-49f0-4c16-a40a-472a8c37fa4b"/>
+          <ID name="UseCaseDependency" mc="Standard.UseCaseDependency" uid="c2b2b87d-bce9-4169-8642-70ba31720b32"/>
           <ATTRIBUTES>
             <ATT name="Name"><![CDATA[UseCaseDependency]]></ATT>
             <ATT name="status">1970354901745664</ATT>

@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Student" version="4">
   <OBJECT>
     <ID name="Student" mc="Standard.Class" uid="1b41239e-80e6-4ea5-945f-1bbb21ba35a2"/>
-    <PID name="se310_project_1" mc="Standard.Package" uid="3a8c2b11-35e8-4cee-93a8-134faf9634df"/>
+    <PID name="Class Diagram" mc="Standard.Package" uid="f8544c46-fb1a-4554-a1b8-8ffce83b4b91"/>
     <ATTRIBUTES>
       <ATT name="IsActive">false</ATT>
       <ATT name="IsMain">false</ATT>
