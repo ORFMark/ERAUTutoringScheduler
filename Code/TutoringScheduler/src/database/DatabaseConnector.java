@@ -13,7 +13,10 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.AbstractList;
+import java.util.Iterator;
 import java.util.Properties;
+
 
 /**
  * @author      Mark Burrell <markrb0609@gmail.com>
@@ -159,7 +162,8 @@ public class DatabaseConnector {
 	 *
 	 * @param  updateQuerey A string containing the properly formatted SQL update querey..
 	 */
-	public void updateDatabase(String updateQuery) {
+	public int updateDatabase(String updateQuery) {
+		int rc = 0;
 		try {
 			if (database != null && !database.isClosed()) {
 				dbStatement = database.createStatement();
@@ -168,12 +172,44 @@ public class DatabaseConnector {
 				System.out.println("Database: " + Boolean.toString(database != null) + " closed: "
 						+ Boolean.toString(database.isClosed()));
 			}
+			rc = 1;
 		} catch (Exception e) {
 			System.out.print("Failed to execute querey");
 			e.printStackTrace();
+			rc = 0;
 		}
+		return rc;
 	}
 
+	
+	public int runTransaction(AbstractList<String> queryList) {
+		int rc = 1;
+		try {
+			database.setAutoCommit(false);
+			Iterator<String> i = queryList.iterator();
+			while(i.hasNext()) {
+				if(updateDatabase(i.next()) == 0) {
+					database.rollback();
+					rc = 0;
+				}
+			}
+			if(rc == 1) {
+			     database.commit();
+			}
+			
+		} catch (SQLException e) {
+			rc = 0;
+			e.printStackTrace();
+		} finally {
+			try {
+				database.setAutoCommit(true);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.exit(0);
+			}
+		}
+		return rc;
+	}
 
 	
 	public Connection getDatabase() {
