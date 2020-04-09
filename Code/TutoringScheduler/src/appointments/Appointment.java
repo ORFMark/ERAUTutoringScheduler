@@ -20,6 +20,46 @@ public class Appointment {
 		this.endTime = end;
 	}
 	
+	public int getTutorID() {
+		return tutorID;
+	}
+
+	public void setTutorID(int tutorID) {
+		this.tutorID = tutorID;
+	}
+
+	public int getStudentID() {
+		return studentID;
+	}
+
+	public void setStudentID(int studentID) {
+		this.studentID = studentID;
+	}
+
+	public String getCourse() {
+		return course;
+	}
+
+	public void setCourse(String course) {
+		this.course = course;
+	}
+
+	public Timestamp getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(Timestamp startTime) {
+		this.startTime = startTime;
+	}
+
+	public Timestamp getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(Timestamp endTime) {
+		this.endTime = endTime;
+	}
+
 	Appointment(int tutorID, int studentID, String course, Timestamp start, Timestamp end) {
 		this.tutorID = tutorID;
 		this.studentID = studentID;

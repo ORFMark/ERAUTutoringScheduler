@@ -10,7 +10,7 @@ public class Person {
 	private String email;
 	private Position status;
 
-	Person(int ID, String firstName, String lastName, String email, Position status) {
+	public Person(int ID, String firstName, String lastName, String email, Position status) {
 		this.ID = ID;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -18,7 +18,7 @@ public class Person {
 		this.status = status;
 	}
 
-	Person(int ID, String firstName, String lastName, String email) {
+	public Person(int ID, String firstName, String lastName, String email) {
 		this.ID = ID;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -26,7 +26,7 @@ public class Person {
 		this.status = Position.STUDENT;
 	}
 
-	Person(ResultSet personRS) throws SQLException {
+	public Person(ResultSet personRS) throws SQLException {
 
 		this.firstName = personRS.getString("firstName");
 		this.lastName = personRS.getString("lastName");
