@@ -77,6 +77,7 @@ public class DatabaseConnector {
 				System.out.println("Successfully connected to " + host);
 			}
 		} catch (Exception e) {
+			/*Catch block ensrures the database nulls out and alerts the user that the DB was not connected to*/
 			System.out.println("COULD NOT CONNECT TO " + host.toUpperCase());
 			database = null;
 			throw e;
@@ -130,31 +131,7 @@ public class DatabaseConnector {
 	}
 
 	
-	/**
-	 * prints a result set in semi-readable format                          (1)
-	 * @TODO: Clean up the print to make it fully readable
-	 *
-	 * @param  rs Resultset to be printed. 
-	 */
-	public void printResultSet(ResultSet rs) {
-		int columnsNumber;
-		try {
-			ResultSetMetaData rsmd = rs.getMetaData();
-			columnsNumber = rsmd.getColumnCount();
-			while (rs.next()) {
-				for (int i = 1; i <= columnsNumber; i++) {
-					if (i > 1)
-						System.out.print(", ");
-					String columnValue = rs.getString(i);
-					System.out.print(rsmd.getColumnName(i) + " " + columnValue);
-				}
-				System.out.println("");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-	}
+	
 
 	
 	/**
@@ -163,7 +140,7 @@ public class DatabaseConnector {
 	 * @param  updateQuerey A string containing the properly formatted SQL update querey..
 	 */
 	public int updateDatabase(String updateQuery) {
-		int rc = 0;
+		int successfulUpdate = 0;
 		try {
 			if (database != null && !database.isClosed()) {
 				dbStatement = database.createStatement();
@@ -172,33 +149,38 @@ public class DatabaseConnector {
 				System.out.println("Database: " + Boolean.toString(database != null) + " closed: "
 						+ Boolean.toString(database.isClosed()));
 			}
-			rc = 1;
+			successfulUpdate = 1;
 		} catch (Exception e) {
 			System.out.print("Failed to execute querey");
 			e.printStackTrace();
-			rc = 0;
+			successfulUpdate = 0;
 		}
-		return rc;
+		return successfulUpdate;
 	}
 
 	
 	public int runTransaction(AbstractList<String> queryList) {
-		int rc = 1;
+		int transactionSuccess = 1;
 		try {
 			database.setAutoCommit(false);
 			Iterator<String> i = queryList.iterator();
 			while(i.hasNext()) {
 				if(updateDatabase(i.next()) == 0) {
 					database.rollback();
-					rc = 0;
+					transactionSuccess = 0;
 				}
 			}
-			if(rc == 1) {
+			if(transactionSuccess == 1) {
 			     database.commit();
 			}
 			
 		} catch (SQLException e) {
-			rc = 0;
+			transactionSuccess = 0;
+			try {
+				database.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 			e.printStackTrace();
 		} finally {
 			try {
@@ -208,7 +190,7 @@ public class DatabaseConnector {
 				System.exit(0);
 			}
 		}
-		return rc;
+		return transactionSuccess;
 	}
 
 	
