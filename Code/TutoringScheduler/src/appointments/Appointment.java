@@ -12,7 +12,7 @@ public class Appointment {
 	private Timestamp startTime;
 	private Timestamp endTime;
 	
-	Appointment(int tutorID, Timestamp start, Timestamp end) {
+	public Appointment(int tutorID, Timestamp start, Timestamp end) {
 		this.tutorID = tutorID;
 		this.studentID = 0;
 		this.course = null;

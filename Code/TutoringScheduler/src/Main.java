@@ -1,19 +1,17 @@
 import tests.DatabaseConnectorTest;
 import tests.PersonTest;
+import tests.TestRunner;
 
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("Hello World");
-		DatabaseConnectorTest testConn = new DatabaseConnectorTest();
-		PersonTest testPerson = new PersonTest();
-		testConn.queryTest();
-		if(testPerson.unitTest()) {
-			System.out.println("Person Unit Test Passed");
-		} else {
-			System.out.println("Person Unit Test Failed");
-		}
+		boolean runProduction = false;
 		
+		if (!runProduction) {
+			TestRunner.UnitTest();
+		} else {
+			//main production code goes here
+		}
 	}
 
 }

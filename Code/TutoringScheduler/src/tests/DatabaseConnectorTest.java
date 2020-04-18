@@ -55,7 +55,7 @@ public class DatabaseConnectorTest {
 		   System.out.println("QUEREY FAILED");
 	   } else {
 		   System.out.println("QUERY PASSED");
-		   testConnector.printResultSet(rs);
+		   printResultSet(rs);
 	   }
    }
    
