@@ -9,6 +9,6 @@ package database;
  */
 
 /* TODO */
-public class DatabaseMaintence {
+public class QueryMarshaller {
 
 }

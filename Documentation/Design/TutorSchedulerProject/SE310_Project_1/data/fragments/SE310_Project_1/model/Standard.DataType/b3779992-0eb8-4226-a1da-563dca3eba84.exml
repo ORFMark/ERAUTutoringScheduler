@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="TimeStamp" version="4">
+  <OBJECT>
+    <ID name="TimeStamp" mc="Standard.DataType" uid="b3779992-0eb8-4226-a1da-563dca3eba84"/>
+    <PID name="Class Diagram" mc="Standard.Package" uid="f8544c46-fb1a-4554-a1b8-8ffce83b4b91"/>
+    <ATTRIBUTES>
+      <ATT name="IsElementary">true</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[TimeStamp]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

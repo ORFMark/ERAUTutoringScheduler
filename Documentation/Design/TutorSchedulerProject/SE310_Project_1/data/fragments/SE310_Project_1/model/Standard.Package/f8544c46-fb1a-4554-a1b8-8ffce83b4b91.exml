@@ -21,7 +21,38 @@
         <COMPID name="Person" mc="Standard.Class" uid="292858ce-e7aa-4dcb-b4cc-80af5d243fab"/>
         <COMPID name="Appointment" mc="Standard.Class" uid="49aca5d1-a211-4cb3-9c28-58bbdd18b5a2"/>
         <COMPID name="TutorScheduler" mc="Standard.Class" uid="49629137-535c-4ec2-9c57-3824d8ffcf1e"/>
-        <COMPID name="WebForm" mc="Standard.Class" uid="c6ba28d9-9d95-48db-a89b-2a30966654ab"/>
+        <OBJECT>
+          <ID name="Position" mc="Standard.Enumeration" uid="dba2573e-708b-4478-9c2e-fd9fce671985"/>
+          <ATTRIBUTES>
+            <ATT name="IsElementary">true</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Position]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Descriptor">
+              <OBJECT>
+                <ID name="" mc="Infrastructure.Note" uid="74a81b00-5abe-4b4f-b8b4-ce34471fce2f"/>
+                <ATTRIBUTES>
+                  <ATT name="Content"><![CDATA[STUDENT, SUPERVISOR, TUTOR
+]]></ATT>
+                  <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Model">
+                    <FOREIGNID name="description" mc="Infrastructure.NoteType" uid="00000000-0000-3e81-0000-000000000000"/>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <COMPID name="TimeStamp" mc="Standard.DataType" uid="b3779992-0eb8-4226-a1da-563dca3eba84"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="MRB_Class diagram" mc="Standard.ClassDiagram" uid="c02096e0-5cb5-4597-abc2-02316fe3b16a"/>
