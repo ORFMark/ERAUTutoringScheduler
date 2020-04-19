@@ -1,5 +1,6 @@
 import tests.DatabaseConnectorTest;
 import tests.PersonTest;
+import tests.QueryMarshlerTest;
 import tests.TestRunner;
 
 public class Main {
@@ -8,7 +9,7 @@ public class Main {
 		boolean runProduction = false;
 		
 		if (!runProduction) {
-			TestRunner.UnitTest();
+			QueryMarshlerTest.unitTest();
 		} else {
 			//main production code goes here
 		}

@@ -17,6 +17,7 @@ public class TestRunner {
 		} else {
 			System.out.println("Appointment Unit Test Failed");
 		}
+		QueryMarshlerTest.unitTest();
 		testConn.queryTest();
 	}
 }
