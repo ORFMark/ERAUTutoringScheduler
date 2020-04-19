@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 public class Appointment {
+	private int id;
 	private int tutorID;
 	private int studentID;
 	private String course;
@@ -20,6 +21,27 @@ public class Appointment {
 		this.endTime = end;
 	}
 	
+	
+	public Appointment(int id, int tutorID, int studentID, String course, Timestamp startTime, Timestamp endTime) {
+		this.id = id;
+		this.tutorID = tutorID;
+		this.studentID = studentID;
+		this.course = course;
+		this.startTime = startTime;
+		this.endTime = endTime;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 	public int getTutorID() {
 		return tutorID;
 	}

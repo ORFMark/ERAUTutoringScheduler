@@ -75,5 +75,8 @@ public class QueryMarshaller {
 		return "DELETE FROM " + table + " WHERE ID = " + Integer.toString(id) + ";";
 	}
 
+	public static String buildGetQuery(String table, int id) {
+		return "SELECT * FROM " + table + "WHERE ID = " + Integer.toString(id) + ";";
+	}
 	
 }
