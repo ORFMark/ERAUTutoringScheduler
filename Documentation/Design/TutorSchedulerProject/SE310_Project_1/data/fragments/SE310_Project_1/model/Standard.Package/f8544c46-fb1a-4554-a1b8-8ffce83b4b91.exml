@@ -15,12 +15,9 @@
     <DEPENDENCIES>
       <COMP relation="OwnedElement">
         <COMPID name="Database" mc="Standard.Class" uid="395a5792-b4f3-4a6c-8640-fe131033b3c1"/>
-        <COMPID name="Tutor" mc="Standard.Class" uid="18a8055e-9e88-48d6-99f4-ce0f007d2917"/>
-        <COMPID name="Supervisor" mc="Standard.Class" uid="bf86b759-5458-4dc4-ab6c-9a7b2255d427"/>
-        <COMPID name="Student" mc="Standard.Class" uid="1b41239e-80e6-4ea5-945f-1bbb21ba35a2"/>
         <COMPID name="Person" mc="Standard.Class" uid="292858ce-e7aa-4dcb-b4cc-80af5d243fab"/>
         <COMPID name="Appointment" mc="Standard.Class" uid="49aca5d1-a211-4cb3-9c28-58bbdd18b5a2"/>
-        <COMPID name="TutorScheduler" mc="Standard.Class" uid="49629137-535c-4ec2-9c57-3824d8ffcf1e"/>
+        <COMPID name="Main" mc="Standard.Class" uid="49629137-535c-4ec2-9c57-3824d8ffcf1e"/>
         <OBJECT>
           <ID name="Position" mc="Standard.Enumeration" uid="dba2573e-708b-4478-9c2e-fd9fce671985"/>
           <ATTRIBUTES>
@@ -53,6 +50,13 @@
           </DEPENDENCIES>
         </OBJECT>
         <COMPID name="TimeStamp" mc="Standard.DataType" uid="b3779992-0eb8-4226-a1da-563dca3eba84"/>
+        <COMPID name="DatabaseConnector" mc="Standard.Class" uid="72c791d9-f0fa-41bb-8434-943c857e90ad"/>
+        <COMPID name="Connection" mc="Standard.DataType" uid="1bc01102-069b-4fc0-9d17-b456901ebe1c"/>
+        <COMPID name="Statement" mc="Standard.DataType" uid="7aee42d0-7e44-40ae-8d35-29debd244252"/>
+        <COMPID name="ResultSet" mc="Standard.DataType" uid="9f6478e1-5801-4aa4-974a-6f6c5703037d"/>
+        <COMPID name="AppointmentBuilder" mc="Standard.Class" uid="bea3d502-b4a2-4b06-810c-dd3e6cf02b47"/>
+        <COMPID name="PersonBuilder" mc="Standard.Class" uid="6af76e29-1322-4ced-a9aa-a105249b2b0d"/>
+        <COMPID name="QueryMarshleer" mc="Standard.Class" uid="a1c6b618-33e2-4fe4-951c-80bd31a04080"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="MRB_Class diagram" mc="Standard.ClassDiagram" uid="c02096e0-5cb5-4597-abc2-02316fe3b16a"/>
