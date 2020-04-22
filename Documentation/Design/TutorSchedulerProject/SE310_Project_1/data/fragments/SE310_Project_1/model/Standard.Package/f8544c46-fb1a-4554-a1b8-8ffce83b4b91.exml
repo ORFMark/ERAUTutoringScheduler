@@ -17,7 +17,7 @@
         <COMPID name="Database" mc="Standard.Class" uid="395a5792-b4f3-4a6c-8640-fe131033b3c1"/>
         <COMPID name="Person" mc="Standard.Class" uid="292858ce-e7aa-4dcb-b4cc-80af5d243fab"/>
         <COMPID name="Appointment" mc="Standard.Class" uid="49aca5d1-a211-4cb3-9c28-58bbdd18b5a2"/>
-        <COMPID name="Main" mc="Standard.Class" uid="49629137-535c-4ec2-9c57-3824d8ffcf1e"/>
+        <COMPID name="Controller" mc="Standard.Class" uid="49629137-535c-4ec2-9c57-3824d8ffcf1e"/>
         <OBJECT>
           <ID name="Position" mc="Standard.Enumeration" uid="dba2573e-708b-4478-9c2e-fd9fce671985"/>
           <ATTRIBUTES>
@@ -56,7 +56,9 @@
         <COMPID name="ResultSet" mc="Standard.DataType" uid="9f6478e1-5801-4aa4-974a-6f6c5703037d"/>
         <COMPID name="AppointmentBuilder" mc="Standard.Class" uid="bea3d502-b4a2-4b06-810c-dd3e6cf02b47"/>
         <COMPID name="PersonBuilder" mc="Standard.Class" uid="6af76e29-1322-4ced-a9aa-a105249b2b0d"/>
-        <COMPID name="QueryMarshleer" mc="Standard.Class" uid="a1c6b618-33e2-4fe4-951c-80bd31a04080"/>
+        <COMPID name="QueryMarshaller" mc="Standard.Class" uid="a1c6b618-33e2-4fe4-951c-80bd31a04080"/>
+        <COMPID name="Interface" mc="Standard.Class" uid="53acaa71-8c41-4add-bfd5-0fc5e36e62fa"/>
+        <COMPID name="Scheduler" mc="Standard.Class" uid="b6cca870-6866-48e6-89b9-4b7abaa66250"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="MRB_Class diagram" mc="Standard.ClassDiagram" uid="c02096e0-5cb5-4597-abc2-02316fe3b16a"/>

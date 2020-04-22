@@ -24,7 +24,7 @@ public class AppointmentBuilder {
 		
 	}
 	
-	public Appointment personBuilder(int id, DatabaseConnector db) {
+	public Appointment getAppointment(int id, DatabaseConnector db) {
 		ResultSet apptRS = db.runQuery(QueryMarshaller.buildGetQuery("Appointment", id)); 
 		return buildAppointment(apptRS);
 	}

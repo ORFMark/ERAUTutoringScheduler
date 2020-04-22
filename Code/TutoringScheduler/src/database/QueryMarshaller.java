@@ -73,11 +73,6 @@ public class QueryMarshaller {
  	 return query;
     }
 	
-	public static String buildInsertQuerey(Appointment appt) {
-		String fieldArray[] = {"tutor, student, startTime, endTime, course"};
-		Object valueArray[] = {appt.getTutorID(), appt.getStudentID(), appt.getStartTime(), appt.getEndTime(), appt.getCourse()};
-		return buildInsertQuery("appointments", fieldArray, valueArray);
-	}
 	
 	public static String buildDeleteQuerey(String table, int id) {
 		return "DELETE FROM " + table + " WHERE ID = " + Integer.toString(id) + ";";

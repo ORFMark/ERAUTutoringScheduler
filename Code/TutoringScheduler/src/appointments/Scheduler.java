@@ -16,7 +16,7 @@ public class Scheduler {
 	}
 
 	private boolean timeOverlap(Timestamp start1, Timestamp end1, Timestamp start2, Timestamp end2) {
-		boolean start1InBlock2 = (start1.before(end2) && start1.after(start2);
+		boolean start1InBlock2 = start1.before(end2) && start1.after(start2);
 		boolean start2InBlock1 = start2.before(end1) && start2.after(start1);
 		boolean end1InBlock2 = end1.before(end2) && end1.after(start2);
 		boolean end2InBlock1 = end2.before(end1) && end2.after(start2);
@@ -42,7 +42,7 @@ public class Scheduler {
 					}
 				}
 				currentRS.close();
-				db.updateDatabase(QueryMarshaller.buildInsertQuerey(myAppt));
+				db.updateDatabase(AppointmentBuilder.getInsertQuery(myAppt));
 			} catch (Exception e) {
 				e.printStackTrace();
 				return -4;
