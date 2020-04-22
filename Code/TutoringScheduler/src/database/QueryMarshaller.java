@@ -3,6 +3,8 @@
  */
 package database;
 
+import appointments.Appointment;
+
 /**
  * @author markr
  *
@@ -71,12 +73,28 @@ public class QueryMarshaller {
  	 return query;
     }
 	
+	public static String buildInsertQuerey(Appointment appt) {
+		String fieldArray[] = {"tutor, student, startTime, endTime, course"};
+		Object valueArray[] = {appt.getTutorID(), appt.getStudentID(), appt.getStartTime(), appt.getEndTime(), appt.getCourse()};
+		return buildInsertQuery("appointments", fieldArray, valueArray);
+	}
+	
 	public static String buildDeleteQuerey(String table, int id) {
 		return "DELETE FROM " + table + " WHERE ID = " + Integer.toString(id) + ";";
 	}
 
 	public static String buildGetQuery(String table, int id) {
 		return "SELECT * FROM " + table + "WHERE ID = " + Integer.toString(id) + ";";
+	}
+	
+	public static String buildGetQuery(String table, String feild, Object id) {
+		if(id instanceof String) {
+			return "SELECT * FROM " + table + "WHERE " + feild + " = \"" + id + "\";";
+		} else if (id instanceof Boolean) {
+			return "SELECT * FROM " + table + "WHERE " + feild + " = \"" + id.toString().toUpperCase() + "\";";
+		} else {
+			return "SELECT * FROM " + table + "WHERE " + feild + " = \"" + id.toString() + "\";";
+		}
 	}
 	
 }
