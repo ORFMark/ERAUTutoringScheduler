@@ -13,6 +13,7 @@ public class Appointment {
 	private Timestamp startTime;
 	private Timestamp endTime;
 	
+	// Constructor for tutor's appointment openings
 	public Appointment(int tutorID, Timestamp start, Timestamp end) {
 		this.tutorID = tutorID;
 		this.studentID = 0;
@@ -21,7 +22,7 @@ public class Appointment {
 		this.endTime = end;
 	}
 	
-	
+	// Constructor for tutoring appointment
 	public Appointment(int id, int tutorID, int studentID, String course, Timestamp startTime, Timestamp endTime) {
 		this.id = id;
 		this.tutorID = tutorID;
@@ -31,7 +32,8 @@ public class Appointment {
 		this.endTime = endTime;
 	}
 
-
+	// Get and set methods
+	
 	public int getId() {
 		return id;
 	}
@@ -96,6 +98,5 @@ public class Appointment {
 		this.course = apptRS.getString("course");
 		this.startTime = apptRS.getTimestamp("startTime");
 		this.endTime = apptRS.getTimestamp("endTime");
-		
 	}
 }

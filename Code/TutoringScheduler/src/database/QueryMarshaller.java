@@ -13,7 +13,7 @@ import appointments.Appointment;
 /* TODO */
 public class QueryMarshaller {
      
-	public static String buildInsertQuerey(String table, String fields[], Object values[]) {
+	public static String buildInsertQuery(String table, String fields[], Object values[]) {
     	 if(fields.length != values.length || fields.length <= 0) {
     		 //System.out.println("Invalid arguments, fields and values must be of the same length and contain more then 0 values");
     		 return null;
@@ -45,7 +45,7 @@ public class QueryMarshaller {
     	 return query;
      }
 	
-	public static String buildInsertQuerey(String table, Object values[]) {
+	public static String buildInsertQuery(String table, Object values[]) {
    	 if( values.length <= 0) {
    		 //System.out.println("Invalid arguments, must insert more then 0 values");
    		 return null;
@@ -74,7 +74,7 @@ public class QueryMarshaller {
     }
 	
 	
-	public static String buildDeleteQuerey(String table, int id) {
+	public static String buildDeleteQuery(String table, int id) {
 		return "DELETE FROM " + table + " WHERE ID = " + Integer.toString(id) + ";";
 	}
 

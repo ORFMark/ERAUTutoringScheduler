@@ -110,7 +110,7 @@ public class DatabaseConnector {
 	 * Runs a query against the database                           (1)
 	 *
 	 * @param  query the properly formatted SQL query.          (3)
-	 * @return ResultSet containing the result of the querey
+	 * @return ResultSet containing the result of the query
 	 */
 	public ResultSet runQuery(String query) {
 		ResultSet rs = null;
@@ -123,7 +123,7 @@ public class DatabaseConnector {
 						+ Boolean.toString(database.isClosed()));
 			}
 		} catch (Exception e) {
-			System.out.print("Failed to execute querey");
+			System.out.print("Failed to execute query");
 			e.printStackTrace();
 			rs = null;
 		}
@@ -137,7 +137,7 @@ public class DatabaseConnector {
 	/**
 	 * Runs a update like an insert or delete on the database
 	 *
-	 * @param  updateQuerey A string containing the properly formatted SQL update querey..
+	 * @param  updateQuery A string containing the properly formatted SQL update query..
 	 */
 	public int updateDatabase(String updateQuery) {
 		int successfulUpdate = 0;
@@ -151,7 +151,7 @@ public class DatabaseConnector {
 			}
 			successfulUpdate = 1;
 		} catch (Exception e) {
-			System.out.print("Failed to execute querey");
+			System.out.print("Failed to execute query");
 			e.printStackTrace();
 			successfulUpdate = 0;
 		}

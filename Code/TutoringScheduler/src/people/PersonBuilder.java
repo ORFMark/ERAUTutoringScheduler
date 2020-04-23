@@ -29,7 +29,7 @@ public class PersonBuilder {
 	public String personInsertQuery(Person person) {
 		String fieldList[] = {"firstName", "lastName", "email", "type"};
 		Object valueList[] = {person.getFirstName(), person.getLastName(), person.getEmail(), person.getStatus()};
-		return QueryMarshaller.buildInsertQuerey("Person", fieldList, valueList);
+		return QueryMarshaller.buildInsertQuery("Person", fieldList, valueList);
 	}
 
 }

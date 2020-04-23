@@ -52,7 +52,7 @@ public class DatabaseConnectorTest {
    public void queryTest() {
 	   rs = testConnector.runQuery("SELECT * FROM actor;");
 	   if (rs == null) {
-		   System.out.println("QUEREY FAILED");
+		   System.out.println("QUERY FAILED");
 	   } else {
 		   System.out.println("QUERY PASSED");
 		   printResultSet(rs);

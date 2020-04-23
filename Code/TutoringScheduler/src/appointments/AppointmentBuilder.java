@@ -10,6 +10,7 @@ import people.Person;
 
 public class AppointmentBuilder {
 
+    // Creates a new appointment object
 	public static Appointment buildAppointment(ResultSet appointmentRS) {
 		try {
 			Appointment newAppointment = new Appointment(appointmentRS.getInt("ID"), appointmentRS.getInt("tutor")
@@ -17,23 +18,25 @@ public class AppointmentBuilder {
 					, appointmentRS.getTimestamp("endTime"));
 			return newAppointment;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println("ERROR: Could not build appointment");
 			e.printStackTrace();
 			return null;
 		}
 		
 	}
 	
+	// Retreives an appointment from the database that matches the ID
 	public Appointment getAppointment(int id, DatabaseConnector db) {
 		ResultSet apptRS = db.runQuery(QueryMarshaller.buildGetQuery("Appointment", id)); 
 		return buildAppointment(apptRS);
 	}
 	
-	public static String getInsertQuery(Appointment appointment) {
-		String feildArray[] = {"tutor", "student", "course", "startTime", "endTime"};
+	// Inserts created appoinment object into the database
+	public static String appointmentInsertQuery(Appointment appointment) {
+		String fieldArray[] = {"tutor", "student", "course", "startTime", "endTime"};
 		Object valueArray[] = {appointment.getTutorID(), appointment.getStudentID()
 				, appointment.getCourse(), appointment.getStartTime()
 				, appointment.getEndTime()};
-		return QueryMarshaller.buildInsertQuerey("appointment", feildArray, valueArray);
+		return QueryMarshaller.buildInsertQuery("appointment", fieldArray, valueArray);
 	}
 }
