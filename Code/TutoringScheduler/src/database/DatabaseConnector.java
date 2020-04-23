@@ -1,6 +1,6 @@
 /*
  * Author: Burrell, Mark R.
- * Purpose: To serve as an interface between a SQL database and a java program. 
+ * Purpose: To serve as an interface between a SQL database and a java program.
  */
 
 package database;
@@ -16,6 +16,8 @@ import java.sql.Statement;
 import java.util.AbstractList;
 import java.util.Iterator;
 import java.util.Properties;
+import java.util.logging.Logger;
+import java.util.logging.FileHandler;
 
 
 /**
@@ -29,7 +31,7 @@ public class DatabaseConnector {
 	private Statement dbStatement;
 	private Properties config;
 	private boolean isValid;
-	
+	private Logger databaseLogger = Logger.getLogger(DatabaseConnector.class.getName());
 	/**
 	 * Default Database Connector that loads based on the config file
 	 * <p>
@@ -49,6 +51,18 @@ public class DatabaseConnector {
 		String host = null;
 		String databaseName = null;
 		FileInputStream file = null;
+
+		databaseLogger.setLevel(Level.ALL);
+
+
+		try {
+			FileHandler fh = new FileHandler("DatabaseConnector.log", true);
+			fh.setLevel(Level.ALL);
+			databaseLogger.addHandler(fh);
+		} catch (IOException e) {
+			databaseLogger.log(Level.SEVERE, "File logger not working", e);
+		}
+
 		config = new Properties();
 		try {
 			file = new FileInputStream("config.properties");
@@ -58,9 +72,10 @@ public class DatabaseConnector {
 			port = config.getProperty("port");
 			host = config.getProperty("host");
 			databaseName = config.getProperty("DB");
-			
+
 		} catch (Exception e) {
 			System.out.println("Failed to load config file!");
+			databaseLogger.log(LEVEL.SEVERE, "Failed to load config file!");
 			e.printStackTrace();
 			host = "prclab1.erau.edu";
 			userName = "erauprescott";
@@ -75,37 +90,41 @@ public class DatabaseConnector {
 			database = DriverManager.getConnection(connectionUrl, userName, passsword);
 			if (database != null) {
 				System.out.println("Successfully connected to " + host);
+				databaseLogger.log(Level.INFO, "Successfully connected to " + host);
 			}
 		} catch (Exception e) {
 			/*Catch block ensrures the database nulls out and alerts the user that the DB was not connected to*/
 			System.out.println("COULD NOT CONNECT TO " + host.toUpperCase());
+			databaseLogger.log(Level.WARNING, "COULD NOT CONNECT TO " + host.toUpperCase());
 			database = null;
 			throw e;
 		}
 	}
 
-	
+
 	/**
-	 * Allows for user-specified database locations and hots                    
+	 * Allows for user-specified database locations and hots
 	 *
 	 * @param  host The host URL with the port
 	 * @param database the database name
 	 * @param user the username for the connection account
-	 * @param password the password for the connection account      
+	 * @param password the password for the connection account
 	 */
 	public DatabaseConnector(String host, String database, String user, String password) {
 		String connectionURL = "jdbc:mysql://" + host + "/" + database;
 		System.out.println("Attempting to connect to database " + database + "at host " + host);
+		databaseLogger.log(Level.INFO, "Attempting to connect to database " + database + "at host " + host);
 		try {
 			this.database = DriverManager.getConnection(connectionURL, user, password);
 		} catch (SQLException e) {
 			System.out.println("Connectioned Failed");
+			databaseLogger.log(Level.WARNING, "Connection Failed");
 			database = null;
 			e.printStackTrace();
 		}
 	}
 
-	
+
 	/**
 	 * Runs a query against the database                           (1)
 	 *
@@ -121,19 +140,22 @@ public class DatabaseConnector {
 			} else {
 				System.out.println("Database: " + Boolean.toString(database != null) + " closed: "
 						+ Boolean.toString(database.isClosed()));
+				databaseLogger.log(Level.INFO, "Database: " + Boolean.toString(database != null) + " closed: "
+						+ Boolean.toString(database.isClosed()));
 			}
 		} catch (Exception e) {
 			System.out.print("Failed to execute query");
+			databaseLogger.log(Level.WARNING, "Failed to execute query");
 			e.printStackTrace();
 			rs = null;
 		}
 		return rs;
 	}
 
-	
-	
 
-	
+
+
+
 	/**
 	 * Runs a update like an insert or delete on the database
 	 *
@@ -148,17 +170,20 @@ public class DatabaseConnector {
 			} else {
 				System.out.println("Database: " + Boolean.toString(database != null) + " closed: "
 						+ Boolean.toString(database.isClosed()));
+				databaseLogger.log(Level.INFO, "Database: " + Boolean.toString(database != null) + " closed: "
+						+ Boolean.toString(database.isClosed()));
 			}
 			successfulUpdate = 1;
 		} catch (Exception e) {
 			System.out.print("Failed to execute query");
+			databaseLogger.log(Level.WARNING, "Failed to execture query");
 			e.printStackTrace();
 			successfulUpdate = 0;
 		}
 		return successfulUpdate;
 	}
 
-	
+
 	public int runTransaction(AbstractList<String> queryList) {
 		int transactionSuccess = 1;
 		try {
@@ -173,27 +198,30 @@ public class DatabaseConnector {
 			if(transactionSuccess == 1) {
 			     database.commit();
 			}
-			
+
 		} catch (SQLException e) {
 			transactionSuccess = 0;
 			try {
 				database.rollback();
 			} catch (SQLException e1) {
+				databaseLogger.log(Level.WARNING, "Error: ", e1);
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
+			databaseLogger.log(Level.WARNING, "Error: " , e);
 		} finally {
 			try {
 				database.setAutoCommit(true);
 			} catch (SQLException e) {
 				e.printStackTrace();
+				databaseLogger.log(Level.WARNING, "Error: ", e);
 				System.exit(0);
 			}
 		}
 		return transactionSuccess;
 	}
 
-	
+
 	public Connection getDatabase() {
 		return database;
 	}
@@ -204,6 +232,7 @@ public class DatabaseConnector {
 				dbStatement.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				databaseLogger.log(Level.WARNING, "Error: ", e);
 			}
 		}
 		if (database != null) {
@@ -211,27 +240,30 @@ public class DatabaseConnector {
 				database.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				databaseLogger.log(Level.WARNING, "Error: ", e);
 			}
 		}
 		dbStatement = null;
 		database = null;
 
 	}
-	
+
 	protected void finalize() {
 		if (dbStatement != null) {
 			try {
 				dbStatement.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				databaseLogger.log(Level.WARNING, "Error: ", e);
 			}
-			dbStatement = null; 
+			dbStatement = null;
 		}
 		if (database != null) {
 			try {
 				database.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				databaseLogger.log(Level.WARNING, "Error: ", e);
 			}
 			database = null;
 		}
