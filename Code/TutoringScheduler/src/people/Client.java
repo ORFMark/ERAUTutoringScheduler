@@ -3,14 +3,14 @@ package people;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Person {
+public class Client {
 	protected int ID;
 	protected String firstName;
 	protected String lastName;
 	protected String email;
 	protected Position status;
 
-	public Person(int ID, String firstName, String lastName, String email, Position status) {
+	public Client(int ID, String firstName, String lastName, String email, Position status) {
 		this.ID = ID;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -18,7 +18,7 @@ public class Person {
 		this.status = status;
 	}
 
-	public Person(int ID, String firstName, String lastName, String email) {
+	public Client(int ID, String firstName, String lastName, String email) {
 		this.ID = ID;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -26,7 +26,7 @@ public class Person {
 		this.status = Position.STUDENT;
 	}
 
-	public Person(ResultSet personRS) throws SQLException {
+	public Client(ResultSet personRS) throws SQLException {
 
 		this.firstName = personRS.getString("firstName");
 		this.lastName = personRS.getString("lastName");

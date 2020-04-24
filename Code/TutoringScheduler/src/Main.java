@@ -1,5 +1,5 @@
 import tests.DatabaseConnectorTest;
-import tests.PersonTest;
+import tests.ClientTest;
 import tests.QueryMarshlerTest;
 import tests.TestRunner;
 

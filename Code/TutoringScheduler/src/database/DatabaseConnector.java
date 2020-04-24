@@ -18,6 +18,7 @@ import java.util.Iterator;
 import java.util.Properties;
 import java.util.logging.Logger;
 import java.util.logging.FileHandler;
+import java.util.logging.Level;
 
 
 /**
@@ -75,7 +76,7 @@ public class DatabaseConnector {
 
 		} catch (Exception e) {
 			System.out.println("Failed to load config file!");
-			databaseLogger.log(LEVEL.SEVERE, "Failed to load config file!");
+			databaseLogger.log(Level.SEVERE, "Failed to load config file!");
 			e.printStackTrace();
 			host = "prclab1.erau.edu";
 			userName = "erauprescott";
@@ -184,6 +185,11 @@ public class DatabaseConnector {
 	}
 
 
+	/**
+	 * Runs a set of updates against the database with transaction mode enabled
+	 *
+	 * @param  queryList A list-type data structure containing the queries (in order) to be executed. they will either all execute or none will
+	 * 	 */
 	public int runTransaction(AbstractList<String> queryList) {
 		int transactionSuccess = 1;
 		try {

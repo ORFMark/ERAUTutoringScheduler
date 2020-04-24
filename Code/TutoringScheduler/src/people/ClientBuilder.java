@@ -6,29 +6,29 @@ import java.sql.SQLException;
 import database.DatabaseConnector;
 import database.QueryMarshaller;
 
-public class PersonBuilder {
+public class ClientBuilder {
 
-	public Person personBuilder(ResultSet personRS) {
-		Person person;
+	public Client clientBuilder(ResultSet personRS) {
+		Client client;
 		try {
-			person = new Person(personRS.getInt("ID"), personRS.getString("firstName")
+			client = new Client(personRS.getInt("ID"), personRS.getString("firstName")
 					, personRS.getString("lastName"), personRS.getString("email")
 					, Position.valueOf(personRS.getString("type")));
 		} catch (SQLException e) {
-			person = null;
+			client = null;
 			e.printStackTrace();
 		}
-		return person;
+		return client;
 	}
 
-	public Person personBuilder(int id, DatabaseConnector db) {
+	public Client clientBuilder(int id, DatabaseConnector db) {
 		ResultSet personRS = db.runQuery(QueryMarshaller.buildGetQuery("Person", id)); 
-		return personBuilder(personRS);
+		return clientBuilder(personRS);
 	}
 	
-	public String personInsertQuery(Person person) {
+	public String clientInsertQuery(Client client) {
 		String fieldList[] = {"firstName", "lastName", "email", "type"};
-		Object valueList[] = {person.getFirstName(), person.getLastName(), person.getEmail(), person.getStatus()};
+		Object valueList[] = {client.getFirstName(), client.getLastName(), client.getEmail(), client.getStatus()};
 		return QueryMarshaller.buildInsertQuery("Person", fieldList, valueList);
 	}
 

@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 
 import database.DatabaseConnector;
 import database.QueryMarshaller;
-import people.Person;
+import people.Client;
 
 public class AppointmentBuilder {
 

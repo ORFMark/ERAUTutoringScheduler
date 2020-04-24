@@ -5,7 +5,7 @@ public class TestRunner {
 	static public void UnitTest() {
 		System.out.println("Hello World");
 		DatabaseConnectorTest testConn = new DatabaseConnectorTest();
-		PersonTest testPerson = new PersonTest();
+		ClientTest testPerson = new ClientTest();
 		AppointmentTest testAppointment = new AppointmentTest();
 		if(testPerson.unitTest()) {
 			System.out.println("Person Unit Test Passed");

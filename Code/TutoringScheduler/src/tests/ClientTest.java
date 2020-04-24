@@ -1,12 +1,12 @@
 package tests;
 
-import people.Person;
+import people.Client;
 import people.Position;
 
-public class PersonTest {
-	private Person testPerson;
-	public PersonTest() {
-		testPerson = new Person(1234, "Mark", "Burrell", "burrel1@my.erau.edu", Position.TUTOR);
+public class ClientTest {
+	private Client testPerson;
+	public ClientTest() {
+		testPerson = new Client(1234, "Mark", "Burrell", "burrel1@my.erau.edu", Position.TUTOR);
 	}
 	
 	public boolean unitTest() {
