@@ -1,6 +1,7 @@
 package tests;
 
 import people.Client;
+import people.ClientBuilder;
 import people.Position;
 
 public class ClientTest {
@@ -53,6 +54,11 @@ public class ClientTest {
 		}
 		if(testPerson.getStatus() != Position.STUDENT) {
 			System.out.println("Unit Test of Person Failed, Positons not equal after set");
+			return false;
+		}
+		String testQuery = "INSERT INTO Person(firstName, lastName, email, type) VALUES (\"Freddy\", \"Mactersterson\", \"test@test.com\", STUDENT);";
+		if(!(testQuery.equals(ClientBuilder.clientInsertQuery(testPerson)))) {
+			System.out.println("Client insert query not expected value: \n\t    Got: " + ClientBuilder.clientInsertQuery(testPerson) + "\n\tExpected: " + testQuery);
 			return false;
 		}
 		return true;

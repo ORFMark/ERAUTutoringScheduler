@@ -8,7 +8,7 @@ import database.QueryMarshaller;
 
 public class ClientBuilder {
 
-	public Client clientBuilder(ResultSet personRS) {
+	public static Client clientBuilder(ResultSet personRS) {
 		Client client;
 		try {
 			client = new Client(personRS.getInt("ID"), personRS.getString("firstName")
@@ -21,12 +21,12 @@ public class ClientBuilder {
 		return client;
 	}
 
-	public Client clientBuilder(int id, DatabaseConnector db) {
+	public static Client clientBuilder(int id, DatabaseConnector db) {
 		ResultSet personRS = db.runQuery(QueryMarshaller.buildGetQuery("Person", id)); 
 		return clientBuilder(personRS);
 	}
 	
-	public String clientInsertQuery(Client client) {
+	public static String clientInsertQuery(Client client) {
 		String fieldList[] = {"firstName", "lastName", "email", "type"};
 		Object valueList[] = {client.getFirstName(), client.getLastName(), client.getEmail(), client.getStatus()};
 		return QueryMarshaller.buildInsertQuery("Person", fieldList, valueList);
