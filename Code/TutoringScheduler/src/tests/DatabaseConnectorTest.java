@@ -3,6 +3,7 @@ package tests;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import database.DatabaseConnector;
 public class DatabaseConnectorTest {
@@ -12,7 +13,7 @@ public class DatabaseConnectorTest {
    public DatabaseConnectorTest() {
 	   try {
 		   try {
-		   testConnector = new DatabaseConnector("prclab1.erau.edu", "sakila", "burrelm1", "roBot!cs4450");
+		   testConnector = new DatabaseConnector();
 		   } catch (Exception e) {
 			   e.printStackTrace();
 			   return;
@@ -49,18 +50,40 @@ public class DatabaseConnectorTest {
 
 	}
 	
-   public void queryTest() {
-	   rs = testConnector.runQuery("SELECT * FROM actor;");
-	   if (rs == null) {
-		   System.out.println("QUERY FAILED");
-	   } else {
-		   System.out.println("QUERY PASSED");
-		   printResultSet(rs);
-	   }
+   public boolean queryTest() {
+	   rs = testConnector.runQuery("SELECT * FROM Person;");
+	   return !(rs == null);
    }
    
-   public void updateTest() {
-	   testConnector.updateDatabase("INSERT INTO actor VALUES (first_name, last_name) \"Fred\", \"FLINTSTONE\";");
+   public boolean updateTest() {
+	   return testConnector.updateDatabase("INSERT INTO Person(firstName, lastName, email) VALUES(  \"Fred\", \"FLINTSTONE\", \"flint@stone.com\");") == 1;
+   }
+   
+   public boolean unitTest() {
+	   if(!queryTest()) {
+		   System.out.println("\tFailed QueryTest");
+		   return false;
+	   }
+	   if(updateTest()) {
+		   System.out.println("\tUpdate reported success");
+	   } else {
+		   System.out.println("\tUpdate reported failure");
+	   }
+	   ResultSet rs = testConnector.runQuery("SELECT * FROM Person WHERE firstName = \"Fred\" and lastName = \"FLINTSTONE\";");
+	   if(rs == null) {
+		   System.out.println("Recored not found in DB");
+		   return false;
+	   } else {
+		   ArrayList<String> qList = new ArrayList<String>();
+		   qList.add("DELETE FROM Person WHERE firstName = \"Fred\" and lastName = \"FLINTSTONE\";");
+		   if(testConnector.runTransaction(qList) == 1) {
+			   return true;
+		   } else {
+			   System.out.println("\tTransaction Failed");
+			   return false;
+		   }
+		   
+	   }
    }
    
 }

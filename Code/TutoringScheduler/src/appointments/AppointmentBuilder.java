@@ -37,6 +37,6 @@ public class AppointmentBuilder {
 		Object valueArray[] = {appointment.getTutorID(), appointment.getStudentID()
 				, appointment.getCourse(), appointment.getStartTime()
 				, appointment.getEndTime()};
-		return QueryMarshaller.buildInsertQuery("appointment", fieldArray, valueArray);
+		return QueryMarshaller.buildInsertQuery("Appointment", fieldArray, valueArray);
 	}
 }

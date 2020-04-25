@@ -28,7 +28,7 @@ public class ClientBuilder {
 	
 	public static String clientInsertQuery(Client client) {
 		String fieldList[] = {"firstName", "lastName", "email", "type"};
-		Object valueList[] = {client.getFirstName(), client.getLastName(), client.getEmail(), client.getStatus()};
+		Object valueList[] = {client.getFirstName(), client.getLastName(), client.getEmail(), client.getStatus().toString()};
 		return QueryMarshaller.buildInsertQuery("Person", fieldList, valueList);
 	}
 

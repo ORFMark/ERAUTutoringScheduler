@@ -86,7 +86,8 @@ public class DatabaseConnector {
 		} finally {
 			file.close();
 		}
-		String connectionUrl = "jdbc:mysql://" + host + ":" + port + "/" + database;
+		String connectionUrl = "jdbc:mysql://" + host + ":" + port + "/" + databaseName;
+		System.out.println(connectionUrl);
 		try {
 			database = DriverManager.getConnection(connectionUrl, userName, passsword);
 			if (database != null) {
@@ -168,13 +169,15 @@ public class DatabaseConnector {
 			if (database != null && !database.isClosed()) {
 				dbStatement = database.createStatement();
 				dbStatement.executeUpdate(updateQuery);
+				successfulUpdate = 1;
 			} else {
 				System.out.println("Database: " + Boolean.toString(database != null) + " closed: "
 						+ Boolean.toString(database.isClosed()));
 				databaseLogger.log(Level.INFO, "Database: " + Boolean.toString(database != null) + " closed: "
 						+ Boolean.toString(database.isClosed()));
+				successfulUpdate = 0;
 			}
-			successfulUpdate = 1;
+			
 		} catch (Exception e) {
 			System.out.print("Failed to execute query");
 			databaseLogger.log(Level.WARNING, "Failed to execture query");

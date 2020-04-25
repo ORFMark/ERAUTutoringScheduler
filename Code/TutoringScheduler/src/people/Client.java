@@ -26,27 +26,6 @@ public class Client {
 		this.status = Position.STUDENT;
 	}
 
-	public Client(ResultSet personRS) throws SQLException {
-
-		this.firstName = personRS.getString("firstName");
-		this.lastName = personRS.getString("lastName");
-		this.email = personRS.getString("email");
-		this.ID = personRS.getInt("ID");
-		switch(personRS.getString("Type")) {
-		case "STUDENT":
-			this.status = Position.STUDENT;
-			break;
-		case "TUTOR":
-			this.status = Position.TUTOR;
-			break;
-		case "SUPERVISOR":
-			this.status = Position.SUPERVISIOR;
-			break;
-		default:
-			this.status = Position.STUDENT;
-		}
-	}
-
 	public int getID() {
 		return ID;
 	}

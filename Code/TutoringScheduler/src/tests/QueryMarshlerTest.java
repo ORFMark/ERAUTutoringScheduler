@@ -26,7 +26,6 @@ public class QueryMarshlerTest {
 			System.out.print("Delete queries do not match!\n\t Expected: " + exampleQuery + "\n\t Got: " + testQuery + "\n");
 			return false;
 		}
-		System.out.print("QueryMarshler Unit Test Passed");
 		return true;
 	}
 }
