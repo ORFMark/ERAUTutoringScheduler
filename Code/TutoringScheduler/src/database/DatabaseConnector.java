@@ -162,6 +162,7 @@ public class DatabaseConnector {
 	 * Runs a update like an insert or delete on the database
 	 *
 	 * @param  updateQuery A string containing the properly formatted SQL update query..
+	 * @return successfulUpdate 1 if sucessful, 0 if not
 	 */
 	public int updateDatabase(String updateQuery) {
 		int successfulUpdate = 0;
@@ -192,7 +193,8 @@ public class DatabaseConnector {
 	 * Runs a set of updates against the database with transaction mode enabled
 	 *
 	 * @param  queryList A list-type data structure containing the queries (in order) to be executed. they will either all execute or none will
-	 * 	 */
+	 * @return transactionSucess 1 if the transaction is successful, 0 if not	 
+	 * */
 	public int runTransaction(AbstractList<String> queryList) {
 		int transactionSuccess = 1;
 		try {
@@ -223,7 +225,7 @@ public class DatabaseConnector {
 				database.setAutoCommit(true);
 			} catch (SQLException e) {
 				e.printStackTrace();
-				databaseLogger.log(Level.WARNING, "Error: ", e);
+				databaseLogger.log(Level.WARNING, "Fatal Error: ", e);
 				System.exit(0);
 			}
 		}
@@ -235,6 +237,10 @@ public class DatabaseConnector {
 		return database;
 	}
 
+	/**
+	 * Closes the database and frees resources
+	 *
+	 * 	 * 	 */
 	public void close() {
 		if (dbStatement != null) {
 			try {

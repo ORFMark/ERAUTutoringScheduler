@@ -1,8 +1,22 @@
 package people;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+/**
+ * @author      Mark Burrell <markrb0609@gmail.com>
+ * @version     1.2                 (current version number of program)
+ * @since       1.0          (the version of the package this class was first added to)
+ */
 
+
+/** 
+ * 
+ * Representation of a user of the software 
+ * @author Mark Burrell
+ * @param ID the ID in the database of the person
+ * @param firstName the persons first name
+ * @param lastName the client's last na,e
+ * @param email the user's email address
+ * @param status the users status/permissions in the system
+ */
 public class Client {
 	protected int ID;
 	protected String firstName;
@@ -10,6 +24,7 @@ public class Client {
 	protected String email;
 	protected Position status;
 
+	
 	public Client(int ID, String firstName, String lastName, String email, Position status) {
 		this.ID = ID;
 		this.firstName = firstName;
