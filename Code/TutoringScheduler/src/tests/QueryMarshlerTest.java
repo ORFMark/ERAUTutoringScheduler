@@ -13,8 +13,9 @@ public class QueryMarshlerTest {
 			System.out.print("Queries for field option do not match!\n\t Expected: " + exampleQuery + "\n\t Got: " + testQuery + "\n");
 			return false;
 		}
-		exampleQuery = "INSERT INTO people VALUES(\"Mark\", \"Burrell\", TRUE, \"Junior SE student\");";
-		testQuery = QueryMarshaller.buildInsertQuery("people", valueList);
+		exampleQuery = "INSERT INTO people VALUES(\"Mark\", \"Burrell\", TRUE, \"Junior SE student\", 244);";
+		Object newValList[] = {"Mark", "Burrell", true, "Junior SE student", 244};
+		testQuery = QueryMarshaller.buildInsertQuery("people", newValList);
 		if(!testQuery.equals(exampleQuery)) {
 			System.out.print("Queries for all option do not match!\n\t Expected: " + exampleQuery + "\n\t Got: " + testQuery + "\n");
 			return false;
@@ -24,6 +25,18 @@ public class QueryMarshlerTest {
 		testQuery = QueryMarshaller.buildDeleteQuery("appointments", 1);
 		if(!testQuery.equals(exampleQuery)) {
 			System.out.print("Delete queries do not match!\n\t Expected: " + exampleQuery + "\n\t Got: " + testQuery + "\n");
+			return false;
+		}
+		exampleQuery = "SELECT * FROM person WHERE ID = 1;";
+		testQuery = QueryMarshaller.buildGetQuery("person", 1);
+		if(!exampleQuery.equals(testQuery)) {
+			System.out.print("get queries do not match!\n\t Expected: " + exampleQuery + "\n\t Got: " + testQuery + "\n");
+			return false;
+		}
+		exampleQuery = "SELECT * FROM person WHERE NUM = 1;";
+		testQuery = QueryMarshaller.buildGetQuery("person", "NUM", 1);
+		if(!exampleQuery.equals(testQuery)) {
+			System.out.print("get queries do not match!\n\t Expected: " + exampleQuery + "\n\t Got: " + testQuery + "\n");
 			return false;
 		}
 		return true;

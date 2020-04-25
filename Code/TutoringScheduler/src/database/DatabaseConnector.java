@@ -144,6 +144,7 @@ public class DatabaseConnector {
 						+ Boolean.toString(database.isClosed()));
 				databaseLogger.log(Level.INFO, "Database: " + Boolean.toString(database != null) + " closed: "
 						+ Boolean.toString(database.isClosed()));
+				throw new Exception();
 			}
 		} catch (Exception e) {
 			System.out.print("Failed to execute query");
@@ -177,6 +178,7 @@ public class DatabaseConnector {
 				databaseLogger.log(Level.INFO, "Database: " + Boolean.toString(database != null) + " closed: "
 						+ Boolean.toString(database.isClosed()));
 				successfulUpdate = 0;
+				throw new Exception();
 			}
 			
 		} catch (Exception e) {
