@@ -28,7 +28,8 @@ public class Scheduler {
 		boolean equality = (start1.equals(start2) || start1.equals(end2) || end1.equals(end2) || end1.equals(start2));
 		return start1InBlock2 || start2InBlock1 || end1InBlock2 || end2InBlock1 || equality;
 	}
-
+	
+	
 	private boolean timeEnclosed(Timestamp start1, Timestamp end1, Timestamp start2, Timestamp end2) {
 		return (start1.after(start1) || start1.equals(start2)) && (end1.before(end2) || end1.equals(end2));
 	}
@@ -62,6 +63,18 @@ public class Scheduler {
 		}
 	}
 
+	/**
+	 * Finds and inserts a new appointment between the tutor and student into the DB
+	 *
+	 * @param  tutor Client representing the tutor. cannot have Position.STUDENT as status
+	 * @param  student Client representing the student
+	 * @param course String containing the course code
+	 * @param startTime Timestamp representation of the appointment start
+	 * @param endTime Timestamp representation of the appointment endtime
+	 * @return transactionSucess 0 for invalid args, -1 for startTime after endtime, -2 transaction insertion failed 
+	 * @return -3 could not find a appointment to insert into, 1 for success
+	 *  
+	 * */
 	public int newAppointment(Client tutor, Client student, String course, Timestamp startTime, Timestamp endTime) {
 		if(tutor == null || tutor.getStatus() == Position.STUDENT || student == null || course == null || startTime == null || endTime == null) {
 			return 0;
@@ -107,6 +120,18 @@ public class Scheduler {
 		return -3;
 	}
 	
+	/**
+	 * Finds and inserts a new appointment between the tutor and student into the DB
+	 *
+	 * @param  tutor int ID of a tutor
+	 * @param  student int ID of the student
+	 * @param course String containing the course code
+	 * @param startTime Timestamp representation of the appointment start
+	 * @param endTime Timestamp representation of the appointment endtime
+	 * @return transactionSucess 0 for invalid args, -1 for startTime after endtime, -2 transaction insertion failed 
+	 * @return -3 could not find a appointment to insert into, 1 for success
+	 *  
+	 * */
 	public int newAppointment(int tutor, int student, String course, Timestamp startTime, Timestamp endTime) {
 		if(course == null || startTime == null || endTime == null) {
 			return 0;

@@ -8,6 +8,13 @@ import database.QueryMarshaller;
 
 public class ClientBuilder {
 
+	/**
+	 * Builds a Client out of a SQL Resultset. Must be on the row to build
+	 *
+	 * @param  personRS the ResultSet of the Client to be represented
+	 * @return a client on success, null on failure
+	 *  
+	 * */
 	public static Client clientBuilder(ResultSet personRS) {
 		Client client;
 		try {
@@ -21,11 +28,27 @@ public class ClientBuilder {
 		return client;
 	}
 
+	/**
+	 * gets a client with the specified ID from the Datbasebase Connector db
+	 *
+	 * @param  id integer ID of the client
+	 * @param  db The databaseConnector attached to the DB
+	 * @return a client on success, null on failure
+	 *  
+	 * */
 	public static Client clientBuilder(int id, DatabaseConnector db) {
 		ResultSet personRS = db.runQuery(QueryMarshaller.buildGetQuery("Person", id)); 
 		return clientBuilder(personRS);
 	}
 	
+	/**
+	 * builds a SQL Insert Query for a client
+	 *
+	 * @param  client the Client to be inserted
+	 * @param 
+	 * @return a string containing the SQL query to insert the client into the DB
+	 *  
+	 * */
 	public static String clientInsertQuery(Client client) {
 		String fieldList[] = {"firstName", "lastName", "email", "type"};
 		Object valueList[] = {client.getFirstName(), client.getLastName(), client.getEmail(), client.getStatus().toString()};

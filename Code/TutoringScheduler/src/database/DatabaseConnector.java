@@ -43,6 +43,7 @@ public class DatabaseConnector {
 	 * host
 	 * port
 	 * </p>
+	 * @throws Exception if a connection cannot be made
 	 */
 	public DatabaseConnector() throws Exception {
 		isValid = false;

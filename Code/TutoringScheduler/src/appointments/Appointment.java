@@ -1,9 +1,6 @@
 package appointments;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.Date;
 
 public class Appointment {
 	private int id;
