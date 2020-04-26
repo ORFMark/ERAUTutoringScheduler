@@ -2,11 +2,9 @@ package appointments;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 
 import database.DatabaseConnector;
 import database.QueryMarshaller;
-import people.Client;
 
 public class AppointmentBuilder {
 

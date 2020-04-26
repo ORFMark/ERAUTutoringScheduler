@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
+
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.AbstractList;
@@ -31,7 +31,6 @@ public class DatabaseConnector {
 	private Connection database;
 	private Statement dbStatement;
 	private Properties config;
-	private boolean isValid;
 	private Logger databaseLogger = Logger.getLogger(DatabaseConnector.class.getName());
 	/**
 	 * Default Database Connector that loads based on the config file
@@ -46,7 +45,6 @@ public class DatabaseConnector {
 	 * @throws Exception if a connection cannot be made
 	 */
 	public DatabaseConnector() throws Exception {
-		isValid = false;
 		String userName = null;
 		String passsword = null;
 		String port = null;

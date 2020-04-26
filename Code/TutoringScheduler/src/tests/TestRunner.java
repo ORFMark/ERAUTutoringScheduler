@@ -1,13 +1,12 @@
 package tests;
 
-import java.util.Date;
 
-import com.mysql.cj.protocol.Resultset;
+
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
+
 
 import appointments.Appointment;
 import appointments.AppointmentBuilder;

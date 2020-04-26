@@ -1,7 +1,3 @@
-import tests.DatabaseConnectorTest;
-import tests.AppointmentTest;
-import tests.ClientTest;
-import tests.QueryMarshlerTest;
 import tests.TestRunner;
 
 public class Main {

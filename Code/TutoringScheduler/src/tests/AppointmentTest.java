@@ -1,13 +1,12 @@
 package tests;
 
-import java.sql.ResultSet;
+
 import java.sql.Timestamp;
 
 import appointments.Appointment;
 import appointments.AppointmentBuilder;
 
 public class AppointmentTest {
-	private ResultSet appointmentRS;
     private Appointment testAppointment;
     private Appointment testAppointment2;
     private Appointment testAppointment3;

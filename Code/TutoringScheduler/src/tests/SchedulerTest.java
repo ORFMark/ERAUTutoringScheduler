@@ -4,7 +4,6 @@ import java.sql.Timestamp;
 
 import appointments.Scheduler;
 import database.DatabaseConnector;
-import people.Client;
 import people.ClientBuilder;
 
 public class SchedulerTest {
