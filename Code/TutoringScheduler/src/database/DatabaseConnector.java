@@ -95,12 +95,12 @@ public class DatabaseConnector {
 				System.out.println("Successfully connected to " + host);
 				databaseLogger.log(Level.INFO, "Successfully connected to " + host);
 			}
-		} catch (Exception e) {
+		} catch (Exception exc) {
 			/*Catch block ensrures the database nulls out and alerts the user that the DB was not connected to*/
 			System.out.println("COULD NOT CONNECT TO " + host.toUpperCase());
 			databaseLogger.log(Level.WARNING, "COULD NOT CONNECT TO " + host.toUpperCase());
 			database = null;
-			throw e;
+			throw exc;
 		}
 	}
 
@@ -147,7 +147,7 @@ public class DatabaseConnector {
 						+ Boolean.toString(database.isClosed()));
 				throw new Exception();
 			}
-		} catch (Exception e) {
+		} catch (Exception exc) {
 			System.out.print("Failed to execute query");
 			databaseLogger.log(Level.WARNING, "Failed to execute query");
 			e.printStackTrace();
@@ -213,22 +213,22 @@ public class DatabaseConnector {
 			     database.commit();
 			}
 
-		} catch (SQLException e) {
+		} catch (SQLException sqlExc) {
 			transactionSuccess = 0;
 			try {
 				database.rollback();
-			} catch (SQLException e1) {
-				databaseLogger.log(Level.WARNING, "Error: ", e1);
+			} catch (SQLException sqlExc1) {
+				databaseLogger.log(Level.WARNING, "Error: ", sqlExc1);
 				e1.printStackTrace();
 			}
 			e.printStackTrace();
-			databaseLogger.log(Level.WARNING, "Error: " , e);
+			databaseLogger.log(Level.WARNING, "Error: " , exc);
 		} finally {
 			try {
 				database.setAutoCommit(true);
-			} catch (SQLException e) {
+			} catch (SQLException exc) {
 				e.printStackTrace();
-				databaseLogger.log(Level.WARNING, "Fatal Error: ", e);
+				databaseLogger.log(Level.WARNING, "Fatal Error: ", exc);
 				System.exit(0);
 			}
 		}
@@ -248,17 +248,17 @@ public class DatabaseConnector {
 		if (dbStatement != null) {
 			try {
 				dbStatement.close();
-			} catch (SQLException e) {
+			} catch (SQLException exc) {
 				e.printStackTrace();
-				databaseLogger.log(Level.WARNING, "Error: ", e);
+				databaseLogger.log(Level.WARNING, "Error: ", exc);
 			}
 		}
 		if (database != null) {
 			try {
 				database.close();
-			} catch (SQLException e) {
+			} catch (SQLException exc) {
 				e.printStackTrace();
-				databaseLogger.log(Level.WARNING, "Error: ", e);
+				databaseLogger.log(Level.WARNING, "Error: ", exc);
 			}
 		}
 		dbStatement = null;
@@ -270,18 +270,18 @@ public class DatabaseConnector {
 		if (dbStatement != null) {
 			try {
 				dbStatement.close();
-			} catch (SQLException e) {
+			} catch (SQLException exc) {
 				e.printStackTrace();
-				databaseLogger.log(Level.WARNING, "Error: ", e);
+				databaseLogger.log(Level.WARNING, "Error: ", exc);
 			}
 			dbStatement = null;
 		}
 		if (database != null) {
 			try {
 				database.close();
-			} catch (SQLException e) {
+			} catch (SQLException exc) {
 				e.printStackTrace();
-				databaseLogger.log(Level.WARNING, "Error: ", e);
+				databaseLogger.log(Level.WARNING, "Error: ", exc);
 			}
 			database = null;
 		}
