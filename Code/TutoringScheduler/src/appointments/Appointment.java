@@ -15,6 +15,7 @@ public class Appointment {
 	
 	// Constructor for tutor's appointment openings
 	public Appointment(int tutorID, Timestamp start, Timestamp end) {
+		this.id = 0;
 		this.tutorID = tutorID;
 		this.studentID = 0;
 		this.course = null;
