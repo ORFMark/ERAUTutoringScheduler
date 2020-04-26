@@ -106,4 +106,49 @@ public class Scheduler {
 		}
 		return -3;
 	}
+	
+	public int newAppointment(int tutor, int student, String course, Timestamp startTime, Timestamp endTime) {
+		if(course == null || startTime == null || endTime == null) {
+			return 0;
+		}
+		if(startTime.after(endTime) || startTime.equals(endTime)) {
+			return -1;
+		}
+		ResultSet apptRS = db.runQuery(QueryMarshaller.buildGetQuery("Appointment", "tutor", tutor));
+		if(apptRS != null) {
+			try {
+
+				while(apptRS.next()) {
+					if(timeEnclosed(startTime, endTime, apptRS.getTimestamp("startTime"), apptRS.getTimestamp("endTime")) && apptRS.getInt("student") != 0) {
+						Appointment emptyAppointment = AppointmentBuilder.buildAppointment(apptRS);
+						int emptyApptID = emptyAppointment.getId();
+						ArrayList<String> queryList = new ArrayList<String>();
+						queryList.add(QueryMarshaller.buildDeleteQuery("Appointment", emptyApptID));
+						if(!startTime.equals(emptyAppointment.getStartTime())) {
+							Appointment preccedingAppointment = new Appointment(tutor, emptyAppointment.getStartTime(), startTime);
+							queryList.add(AppointmentBuilder.appointmentInsertQuery(preccedingAppointment));
+						}
+						if(!endTime.equals(emptyAppointment.getEndTime())) {
+							Appointment postceedingAppointment = new Appointment(tutor, endTime, emptyAppointment.getEndTime());
+							queryList.add(AppointmentBuilder.appointmentInsertQuery(postceedingAppointment));
+						}
+						Appointment newAppointment = new Appointment(0, tutor, student, course, startTime, endTime);
+						queryList.add(AppointmentBuilder.appointmentInsertQuery(newAppointment));
+						if(db.runTransaction(queryList) == 1) {
+							return 1;
+						} else {
+							apptRS.close();
+							return -2;
+						}
+
+
+					}
+				}
+				return -3;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return -3;
+	}
 }

@@ -111,7 +111,7 @@ public class QueryMarshaller {
 	 * @return a properly formatted SQL select query, suitable for use with the DatbaseConnector.runQuery method	 
 	 * */
 	public static String buildGetQuery(String table, int id) {
-		return "SELECT * FROM " + table + "WHERE ID = " + Integer.toString(id) + ";";
+		return "SELECT * FROM " + table + " WHERE ID = " + Integer.toString(id) + ";";
 	}
 	
 	/**
@@ -125,11 +125,11 @@ public class QueryMarshaller {
 	 * */
 	public static String buildGetQuery(String table, String feild, Object id) {
 		if(id instanceof String) {
-			return "SELECT * FROM " + table + "WHERE " + feild + " = \"" + id + "\";";
+			return "SELECT * FROM " + table + " WHERE " + feild + " = \"" + id + "\";";
 		} else if (id instanceof Boolean) {
-			return "SELECT * FROM " + table + "WHERE " + feild + " = \"" + id.toString().toUpperCase() + "\";";
+			return "SELECT * FROM " + table + " WHERE " + feild + " = " + id.toString().toUpperCase() + ";";
 		} else {
-			return "SELECT * FROM " + table + "WHERE " + feild + " = \"" + id.toString() + "\";";
+			return "SELECT * FROM " + table + " WHERE " + feild + " = " + id.toString() + ";";
 		}
 	}
 	
