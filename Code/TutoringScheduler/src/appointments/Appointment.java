@@ -15,7 +15,6 @@ public class Appointment {
 	
 	// Constructor for tutor's appointment openings
 	public Appointment(int tutorID, Timestamp start, Timestamp end) {
-		this.id = 0;
 		this.tutorID = tutorID;
 		this.studentID = 0;
 		this.course = null;
@@ -23,7 +22,25 @@ public class Appointment {
 		this.endTime = end;
 	}
 	
-	// Constructor for tutoring appointment
+	// Constructor for proposed appointment
+	public Appointment(int tutorID, int studentID, String course, Timestamp start, Timestamp end) {
+		this.tutorID = tutorID;
+		this.studentID = studentID;
+		this.course = course;
+		this.startTime = start;
+		this.endTime = end;
+	}
+	
+	// Constructor for appointment created by AppointmentBuilder
+	Appointment(ResultSet apptRS) throws SQLException {
+		this.tutorID = apptRS.getInt("tutorID");
+		this.studentID = apptRS.getInt("studentID");
+		this.course = apptRS.getString("course");
+		this.startTime = apptRS.getTimestamp("startTime");
+		this.endTime = apptRS.getTimestamp("endTime");
+	}
+	
+	// Constructor for approved tutoring appointment
 	public Appointment(int id, int tutorID, int studentID, String course, Timestamp startTime, Timestamp endTime) {
 		this.id = id;
 		this.tutorID = tutorID;
@@ -83,21 +100,5 @@ public class Appointment {
 
 	public void setEndTime(Timestamp endTime) {
 		this.endTime = endTime;
-	}
-
-	Appointment(int tutorID, int studentID, String course, Timestamp start, Timestamp end) {
-		this.tutorID = tutorID;
-		this.studentID = studentID;
-		this.course = course;
-		this.startTime = start;
-		this.endTime = end;
-	}
-	
-	Appointment(ResultSet apptRS) throws SQLException {
-		this.tutorID = apptRS.getInt("tutorID");
-		this.studentID = apptRS.getInt("studentID");
-		this.course = apptRS.getString("course");
-		this.startTime = apptRS.getTimestamp("startTime");
-		this.endTime = apptRS.getTimestamp("endTime");
 	}
 }

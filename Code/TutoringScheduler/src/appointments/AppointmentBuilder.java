@@ -25,13 +25,13 @@ public class AppointmentBuilder {
 		
 	}
 	
-	// Retreives an appointment from the database that matches the ID
+	// Retrieves an appointment from the database that matches the ID
 	public Appointment getAppointment(int id, DatabaseConnector db) {
 		ResultSet apptRS = db.runQuery(QueryMarshaller.buildGetQuery("Appointment", id)); 
 		return buildAppointment(apptRS);
 	}
 	
-	// Inserts created appoinment object into the database
+	// Inserts created appointment object into the database
 	public static String appointmentInsertQuery(Appointment appointment) {
 		String fieldArray[] = {"tutor", "student", "course", "startTime", "endTime"};
 		Object valueArray[] = {appointment.getTutorID(), appointment.getStudentID()
