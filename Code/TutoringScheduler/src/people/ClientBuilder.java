@@ -37,8 +37,16 @@ public class ClientBuilder {
 	 *  
 	 * */
 	public static Client clientBuilder(int id, DatabaseConnector db) {
-		ResultSet personRS = db.runQuery(QueryMarshaller.buildGetQuery("Person", id)); 
-		return clientBuilder(personRS);
+		ResultSet personRS = db.runQuery(QueryMarshaller.buildGetQuery("Person", id));
+		try {
+			if(personRS.next()) {
+				return clientBuilder(personRS);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	/**

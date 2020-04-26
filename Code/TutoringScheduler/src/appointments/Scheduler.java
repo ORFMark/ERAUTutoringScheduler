@@ -35,7 +35,7 @@ public class Scheduler {
 	}
 
 	// Creates a new appointment in the DB with null course and tutor
-	public int newAppoinmtent(Client tutor, Timestamp startTime, Timestamp endTime) {
+	public int newAppointment(Client tutor, Timestamp startTime, Timestamp endTime) {
 		if (tutor == null || startTime == null || endTime == null) {
 			return 0;
 		} else if (startTime.after(endTime) || startTime.equals(endTime)) {
@@ -44,7 +44,7 @@ public class Scheduler {
 			try {
 				Appointment myAppt = new Appointment(tutor.getID(), startTime, endTime);
 				ResultSet currentRS = db
-						.runQuery(QueryMarshaller.buildGetQuery("appointment", "tutorID", tutor.getID()));
+						.runQuery(QueryMarshaller.buildGetQuery("Appointment", "tutor", tutor.getID()));
 				while (currentRS.next()) {
 					if (timeOverlap(startTime, endTime, currentRS.getTimestamp("startTime"),
 							currentRS.getTimestamp("endTime"))) {
@@ -82,7 +82,7 @@ public class Scheduler {
 		if(startTime.after(endTime) || startTime.equals(endTime)) {
 			return -1;
 		}
-		ResultSet apptRS = db.runQuery(QueryMarshaller.buildGetQuery("appointment", "tutor", tutor.getID()));
+		ResultSet apptRS = db.runQuery(QueryMarshaller.buildGetQuery("Appointment", "tutor", tutor.getID()));
 		if(apptRS != null) {
 			try {
 
@@ -91,7 +91,7 @@ public class Scheduler {
 						Appointment emptyAppointment = AppointmentBuilder.buildAppointment(apptRS);
 						int emptyApptID = emptyAppointment.getId();
 						ArrayList<String> queryList = new ArrayList<String>();
-						queryList.add(QueryMarshaller.buildDeleteQuery("appointment", emptyApptID));
+						queryList.add(QueryMarshaller.buildDeleteQuery("Appointment", emptyApptID));
 						if(!startTime.equals(emptyAppointment.getStartTime())) {
 							Appointment preccedingAppointment = new Appointment(tutor.getID(), emptyAppointment.getStartTime(), startTime);
 							queryList.add(AppointmentBuilder.appointmentInsertQuery(preccedingAppointment));

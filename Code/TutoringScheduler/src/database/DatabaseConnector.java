@@ -150,7 +150,7 @@ public class DatabaseConnector {
 		} catch (Exception exc) {
 			System.out.print("Failed to execute query");
 			databaseLogger.log(Level.WARNING, "Failed to execute query");
-			e.printStackTrace();
+			exc.printStackTrace();
 			rs = null;
 		}
 		return rs;
@@ -219,15 +219,15 @@ public class DatabaseConnector {
 				database.rollback();
 			} catch (SQLException sqlExc1) {
 				databaseLogger.log(Level.WARNING, "Error: ", sqlExc1);
-				e1.printStackTrace();
+				sqlExc1.printStackTrace();
 			}
-			e.printStackTrace();
-			databaseLogger.log(Level.WARNING, "Error: " , exc);
+			sqlExc.printStackTrace();
+			databaseLogger.log(Level.WARNING, "Error: " , sqlExc);
 		} finally {
 			try {
 				database.setAutoCommit(true);
 			} catch (SQLException exc) {
-				e.printStackTrace();
+				exc.printStackTrace();
 				databaseLogger.log(Level.WARNING, "Fatal Error: ", exc);
 				System.exit(0);
 			}
@@ -249,7 +249,7 @@ public class DatabaseConnector {
 			try {
 				dbStatement.close();
 			} catch (SQLException exc) {
-				e.printStackTrace();
+				exc.printStackTrace();
 				databaseLogger.log(Level.WARNING, "Error: ", exc);
 			}
 		}
@@ -257,7 +257,7 @@ public class DatabaseConnector {
 			try {
 				database.close();
 			} catch (SQLException exc) {
-				e.printStackTrace();
+				exc.printStackTrace();
 				databaseLogger.log(Level.WARNING, "Error: ", exc);
 			}
 		}
@@ -271,7 +271,7 @@ public class DatabaseConnector {
 			try {
 				dbStatement.close();
 			} catch (SQLException exc) {
-				e.printStackTrace();
+				exc.printStackTrace();
 				databaseLogger.log(Level.WARNING, "Error: ", exc);
 			}
 			dbStatement = null;
@@ -280,7 +280,7 @@ public class DatabaseConnector {
 			try {
 				database.close();
 			} catch (SQLException exc) {
-				e.printStackTrace();
+				exc.printStackTrace();
 				databaseLogger.log(Level.WARNING, "Error: ", exc);
 			}
 			database = null;
